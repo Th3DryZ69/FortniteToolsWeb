@@ -9,7 +9,7 @@ function copyToClipboard(text, btn) {
 
 async function loadJSON() {
     try {
-        const response = await fetch("/public/data/id.json");
+        const response = await fetch("./public/data/id.json");
         const data = await response.json();
         generateTable(data);
     } catch (error) {
