@@ -7,7 +7,7 @@ function copyToClipboard(text, btn) {
     });
 }
 const meshDiv = document.getElementById('meshDiv');
-fetch('./data/devicemeshs.json')
+fetch('../data/devicemeshs.json')
     .then(response => response.json())
     .then(data => {
         const table = document.createElement('table');
