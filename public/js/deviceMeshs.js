@@ -125,24 +125,33 @@ searchToggle.addEventListener("click", () => {
     searchInput.classList.toggle("active");
     searchInput.focus();
 });
-searchInput.addEventListener("input", function () {
-    const filter = this.value.toLowerCase();
-    const titles = document.querySelectorAll(".device-title");
-    titles.forEach(title => {
-        const deviceName = title.textContent.toLowerCase();
-        const tableRows = [];
-        let next = title.parentElement.nextElementSibling;
-        while (next && !next.querySelector(".device-title")) {
-            tableRows.push(next);
-            next = next.nextElementSibling;
-        }
 
-        if (deviceName.includes(filter)) {
-            title.parentElement.style.display = "";
-            tableRows.forEach(row => row.style.display = "");
-        } else {
-            title.parentElement.style.display = "none";
-            tableRows.forEach(row => row.style.display = "none");
-        }
+fetch('../data/devicemeshs.json')
+    .then(response => response.json())
+    .then(data => {
+        const deviceNames = Object.keys(data);
+        searchInput.addEventListener("input", function () {
+            const filter = this.value.trim().toLowerCase();
+            const titles = document.querySelectorAll(".device-title");
+            titles.forEach(title => {
+                const tableRows = [];
+                let next = title.parentElement.nextElementSibling;
+                while (next && !next.querySelector(".device-title")) {
+                    tableRows.push(next);
+                    next = next.nextElementSibling;
+                }
+                const strongTag = title.querySelector("strong");
+                const deviceNameText = strongTag ? strongTag.textContent.trim().toLowerCase() : "";
+                if (filter === "" || deviceNameText.startsWith(filter)) {
+                    title.parentElement.style.display = "";
+                    tableRows.forEach(row => row.style.display = "");
+                } else {
+                    title.parentElement.style.display = "none";
+                    tableRows.forEach(row => row.style.display = "none");
+                }
+            });
+        });
+    })
+    .catch(error => {
+        console.error('Error loading JSON:', error);
     });
-});

@@ -1992,7 +1992,7 @@
         "tag": [ "Creative", "Unreleased" ],
         "image": "../images/devices/Emote Controller.png",
         "playset": "/",
-        "path": "/CRD_PhysicsObject/Device_PhysicsObjectBase_C.Device_PhysicsObjectBase_C",
+        "path": "/CRD_PhysicsObject/Device_PhysicsObjectBase.Device_PhysicsObjectBase_C",
         "settings": {
             "": {
                 "option key": "",
@@ -2575,7 +2575,7 @@
         }
     },
     "Streaming Radio": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Streaming Radio.png",
@@ -3241,7 +3241,8 @@
         "dispo": true,
         "old": false,
         "tag": [ "Creative", "Beta" ],
-        "image": "../images/devices/Emote Controller.png",
+        "image": "../images/devices/Character Transformation Device.png",
+        "image1": "../images/devices/Emote Controller.png",
         "playset": "/CRD_VFX_Spawner/SetupAssets/PID_Device_PointOfLight.PID_Device_PointOfLight",
         "path": "/CRD_VFX_Spawner/Device_PointOfLight.Device_PointOfLight_C",
         "settings": {
@@ -3671,6 +3672,76 @@
             }
         }
     },
+    "Collectible Object": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Collectible Object.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Collectibles_Object_V2.PID_Collectibles_Object_V2",
+        "path": "/CreativeCoreDevices/Device_Collectible_Object_V2.Device_Collectible_Object_V2_C",
+        "settings": {
+            "FX": {
+                "option key": "CustomOnCollectedVFX",
+                "value": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cyclone_Male/FX/NS_Glider_Cyclone.NS_Glider_Cyclone"
+            },
+            "Mesh": {
+                "option key": "CustomMesh",
+                "value": "/Game/Environments/Asteria/Props/Quest/Quest_Clipboard_A/Meshes/SM_Quest_Clipboard_A.SM_Quest_Clipboard_A"
+            }
+        }
+    },
+    "Capture Area": {
+        "dispo": true,
+        "old": false,
+        "image": "../images/devices/Capture Area.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_CaptureArea_V2.PID_CP_Devices_CaptureArea_V2",
+        "path": "/CreativeCoreDevices/Device_CaptureArea_V2.Device_CaptureArea_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Lock Device": {
+        "dispo": true,
+        "old": false,
+        "image": "../images/devices/Lock Device.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_KeyLock_V2.PID_CP_Devices_KeyLock_V2",
+        "path": "/CreativeCoreDevices/Device_Keylock_V2.Device_Keylock_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Matchmaking Portal": {
+        "dispo": true,
+        "old": false,
+        "image": "../images/devices/Matchmaking Portal.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_MatchmakingPortal_V2.PID_CP_Devices_MatchmakingPortal_V2",
+        "path": "/CreativeCoreDevices/Device_MatchmakingPortal_V2.Device_MatchmakingPortal_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Round Settings": {
+        "dispo": true,
+        "old": false,
+        "image": "../images/devices/Round Settings.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_RoundSettings_V2.PID_CP_Devices_RoundSettings_V2",
+        "path": "/CreativeCoreDevices/Device_RoundSettings_V2.Device_RoundSettings_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Air Vent": {
         "dispo": true,
         "old": false,
@@ -3716,24 +3787,6 @@
         "playset": "",
         "path": "/CreativeCoreDevices/Device_Button_V2.Device_Button_V2_C",
         "settings": {
-            "Mesh": {
-                "option key": "CustomMesh",
-                "value": "/Game/Environments/Asteria/Props/Quest/Quest_Clipboard_A/Meshes/SM_Quest_Clipboard_A.SM_Quest_Clipboard_A"
-            }
-        }
-    },
-    "Collectible Object": {
-        "dispo": true,
-        "old": false,
-        "tag": [ "Creative" ],
-        "image": "../images/devices/Collectible Object.png",
-        "playset": "",
-        "path": "/CreativeCoreDevices/Device_Collectible_Object_V2.Device_Collectible_Object_V2_C",
-        "settings": {
-            "FX": {
-                "option key": "CustomOnCollectedVFX",
-                "value": "/BRCosmetics/Gadgets/Assets/VinderTech_GliderChute/Glider_Cyclone_Male/FX/NS_Glider_Cyclone.NS_Glider_Cyclone"
-            },
             "Mesh": {
                 "option key": "CustomMesh",
                 "value": "/Game/Environments/Asteria/Props/Quest/Quest_Clipboard_A/Meshes/SM_Quest_Clipboard_A.SM_Quest_Clipboard_A"
