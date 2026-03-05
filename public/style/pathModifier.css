@@ -1,10 +1,12 @@
-/* Body */
 @font-face {
     font-family: 'FiraCode';
     src: url('../fonts/FiraCode-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
     margin: 0;
     padding: 0;
@@ -14,102 +16,152 @@ body {
     font-size: 13px !important;
     word-spacing: 0px !important;
 }
-/* Body */
 
-/* Header */
+main {
+    min-height: calc(100vh - 54px);
+    display: flex;
+    align-items: center;
+}
+
+/* ── Header ── */
 #header-container {
-    display: flex; 
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 50px;
+    min-height: 54px;
     border-bottom: 1px solid #ec7519;
+    padding: 0 24px;
+    flex-wrap: wrap;
+    gap: 150px;
 }
-#header-container ul {
-    display: flex; 
-    list-style: none; 
-    padding: 0px;
-}
-#header-container li {
-    margin: 15px;
-}
-#logo h1 a {
-    color: #ec7519;
-    text-decoration: none;
-}
-nav a {
-    color: #929295;
-    text-decoration: none;
-}
-nav a:hover {
-    color: #ec7519;
-    text-decoration: underline;
-}
-/* Header */
 
+#logo h1 { margin: 0; }
+#logo h1 a { color: #ec7519; text-decoration: none; }
+nav ul { display: flex; list-style: none; padding: 0; margin: 0; gap: 20px; flex-wrap: wrap; }
+nav a { color: #929295; text-decoration: none; transition: color 0.2s; }
+nav a:hover { color: #ec7519; }
+
+/* ── Page ── */
 #pathModifier {
-    width: 80%; 
-    margin: 50px auto;
-    padding: 50px;
-    text-align: center;
+    width: 94%;
+    max-width: 1000px;
+    margin: 0 auto;
     background-color: #32333d;
+    border: 1px solid #3e3f4a;
+    border-radius: 10px;
+    overflow: hidden;
 }
-#pathModifier div {
-    margin: 25px auto;
+
+/* ── Section rows ── */
+.pm-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 28px 24px;
+    border-bottom: 1px solid #2c2d36;
+    flex-wrap: wrap;
 }
-#pathModifier input[type="text"] {
-    background-color: #32333d;
+.pm-row:last-child { border-bottom: none; }
+
+.pm-label {
+    color: #ec7519;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* Inputs */
+.pm-row input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    background-color: #27272f;
+    color: #e0e0e2;
+    border: 1px solid #3e3f4a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: 'FiraCode', monospace;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.pm-row input[type="text"]:hover,
+.pm-row input[type="text"]:focus { border-color: #ec7519; }
+.pm-row input[type="text"]::placeholder { color: #555; }
+
+#modifiedPath {
+    background-color: #22232b !important;
+    color: #ec7519 !important;
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #929295;
-    width: 60%; 
-    padding: 10px;
-    margin: 10px auto;
-    border: 1px solid #929295; 
-    border-radius: 5px;
+    font-size: 12px;
+    flex: 1;
 }
+
 input[type="checkbox"] {
-    vertical-align: middle;
     appearance: none;
     -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #929295;
-    border-radius: 2px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #555;
+    border-radius: 3px;
     outline: none;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #27272f;
+    transition: border-color 0.2s;
     position: relative;
+    flex-shrink: 0;
 }
-input[type="checkbox"]:checked {
-    border-color: #ec7519;
-}
-input[type="checkbox"]:hover {
-    border-color: #ec7519;
-}
+input[type="checkbox"]:hover { border-color: #ec7519; }
+input[type="checkbox"]:checked { border-color: #ec7519; background-color: rgba(236,117,25,0.1); }
 input[type="checkbox"]:checked::after {
     content: '✔';
     position: absolute;
     color: #ec7519;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: bold;
-    line-height: 1;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
 }
-#pathModifier button {
-    margin: 0;
-    background-color: #32333d;
+
+/* Buttons */
+.pm-row button {
+    background-color: transparent;
     color: #929295;
-    border: 1px solid #929295;
-    width: 100px;
-    padding: 10px;
-    border-radius: 5px;
-}
-#pathModifier button:hover {
-    color: #ec7519;
-    border: 1px solid #ec7519;
+    border: 1px solid #3e3f4a;
+    border-radius: 6px;
+    padding: 7px 14px;
     cursor: pointer;
+    font-family: 'FiraCode', monospace;
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: color 0.2s, border-color 0.2s, background-color 0.2s;
 }
-#pathModifier p {
+.pm-row button:hover {
     color: #ec7519;
-    font-weight: bold;
+    border-color: #ec7519;
+    background-color: rgba(236,117,25,0.08);
+}
+#generateBtn {
+    color: #ec7519;
+    border-color: #ec7519;
+}
+#generateBtn:hover {
+    background-color: rgba(236,117,25,0.15);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    #header-container { flex-direction: column; height: auto; padding: 10px 16px; gap: 8px; }
+    nav ul { gap: 12px; justify-content: center; }
+    #pathModifier { width: 96%; margin: 16px auto 60px; }
+    .pm-row { flex-direction: column; align-items: stretch; }
+    .pm-label { width: auto; }
+    .pm-row button { width: 100%; }
 }

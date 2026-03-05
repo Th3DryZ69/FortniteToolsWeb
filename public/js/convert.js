@@ -1,408 +1,268 @@
+// ── Helpers ──
+function setResult(el, html, state = 'success') {
+    el.className = `result-box ${state}`;
+    el.innerHTML = html;
+}
+
+function setLoading(el, msg = 'Loading...') {
+    el.className = 'result-box loading';
+    el.innerHTML = `<span class="result-spinner"></span>${msg}`;
+}
+
+function convertExportPath(path) {
+    if (!path) return null;
+    if (path.startsWith('/')) path = path.slice(1);
+    const [left] = path.split('.');
+    if (left.startsWith('Game/')) {
+        return `FortniteGame/Content/${left.slice(5)}.uasset`;
+    } else if (left.startsWith('SparksCosmetics/')) {
+        const [plugin, ...rest] = left.split('/');
+        return `FortniteGame/Plugins/GameFeatures/FM/${plugin}/Content/${rest.join('/')}.uasset`;
+    } else if (left.startsWith('FigureCosmetics/')) {
+        const [plugin, ...rest] = left.split('/');
+        return `FortniteGame/Plugins/GameFeatures/Juno/${plugin}/Content/${rest.join('/')}.uasset`;
+    } else {
+        const [plugin, ...rest] = left.split('/');
+        return `FortniteGame/Plugins/GameFeatures/${plugin}/Content/${rest.join('/')}.uasset`;
+    }
+}
+
+async function fetchExportData(path) {
+    if (!path) return null;
+    try {
+        const res = await fetch(`https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`);
+        const data = await res.json();
+        if (!data.errored || data.note !== 'Unable to find package') return data;
+    } catch {}
+    try {
+        const res2 = await fetch(`https://export-service.dillyapis.com/v1/export?path=${encodeURIComponent(path)}`);
+        return await res2.json();
+    } catch { return null; }
+}
+
+const replaceLastSegment = (path) => {
+    if (!path.includes('.')) return path;
+    const [base] = path.split('.');
+    return `${base}.${base.split('/').pop()}`;
+};
+
+const findAllSoundWavePaths = (data) => {
+    const results = [];
+    const search = (obj) => {
+        if (Array.isArray(obj)) obj.forEach(search);
+        else if (typeof obj === 'object' && obj !== null) {
+            if (obj.ObjectName?.includes('SoundWave')) results.push(obj.ObjectPath);
+            Object.values(obj).forEach(search);
+        }
+    };
+    search(data);
+    return results;
+};
+
+// ── Emote → Animation ──
 window.addEventListener('DOMContentLoaded', () => {
     async function emoteToAnimation() {
-        const emoteInput = document.getElementById("emoteId").value.trim();
-        const animationPath = document.getElementById("animationPath");
-        if (!emoteInput) {
-            animationPath.textContent = "Animation: (Please enter an Emote ID)";
-            return;
-        }
-        animationPath.textContent = "Animation: Loading...";
-        function convertExportPath(path) {
-            if (!path) return null;
-            if (path.startsWith('/')) path = path.slice(1);
-            const [left] = path.split('.');
-            if (left.startsWith('Game/')) {
-                return `FortniteGame/Content/${left.slice(5)}.uasset`;
-            } else if (left.startsWith('SparksCosmetics/')) {
-                const [plugin, ...rest] = left.split('/');
-                return `FortniteGame/Plugins/GameFeatures/FM/${plugin}/Content/${rest.join('/')}.uasset`;
-            } else if (left.startsWith('FigureCosmetics/')) {
-                const [plugin, ...rest] = left.split('/');
-                return `FortniteGame/Plugins/GameFeatures/Juno/${plugin}/Content/${rest.join('/')}.uasset`;
-            } else {
-                const [plugin, ...rest] = left.split('/');
-                return `FortniteGame/Plugins/GameFeatures/${plugin}/Content/${rest.join('/')}.uasset`;
-            }
-        }
-        async function fetchExportData(path) {
-            try {
-                const res = await fetch(`https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`);
-                const data = await res.json();
-                if (!data.errored || data.note !== "Unable to find package") {
-                    return data;
-                }
-            } catch {}
-            try {
-                const fallbackRes = await fetch(`https://export-service.dillyapis.com/v1/export?path=${encodeURIComponent(path)}`);
-                return await fallbackRes.json();
-            } catch {
-                return null;
-            }
-        }
+        const input  = document.getElementById('emoteId').value.trim();
+        const output = document.getElementById('animationPath');
+        if (!input) { setResult(output, 'Please enter an Emote ID.', 'error'); return; }
+        setLoading(output, 'Fetching animation...');
         try {
-            const apiUrl = `https://fortniteapi.io/v2/items/get?id=${encodeURIComponent(emoteInput)}`;
-            const res = await fetch(apiUrl, {
-                method: "GET",
-                headers: {
-                    "Authorization": "5d8b45aa-b9bd55f8-1f355ec5-fb6b123a",
-                    "Content-Type": "application/json"
-                }
+            const res  = await fetch(`https://fortniteapi.io/v2/items/get?id=${encodeURIComponent(input)}`, {
+                headers: { 'Authorization': '5d8b45aa-b9bd55f8-1f355ec5-fb6b123a' }
             });
             const json = await res.json();
-            const item = json?.item;
-            const assetId = item?.definitionPath || item?.path;
+            const assetId = json?.item?.definitionPath || json?.item?.path;
             let assetPath = convertExportPath(assetId);
+
             if (!assetId) {
-                const response = await fetch("https://fortnitecentral.genxgames.gg/api/v1/assets");
-                const json = await response.json();
-                const foundAssets = json.filter(a =>
-                    a.includes(`/${emoteInput}.uasset`)
-                );
-                if (!foundAssets || !foundAssets[0]) {
-                    animationPath.textContent = "Animation: ❌ No animation data found.";
-                    return;
-                }
-                assetPath = foundAssets[0];
+                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                const found = all.find(a => a.includes(`/${input}.uasset`));
+                if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
+                assetPath = found;
             }
-            let exportData = await fetchExportData(assetPath)
+
+            let exportData = await fetchExportData(assetPath);
             let animations = exportData?.jsonOutput;
-            if (!animations || !animations[0]) {
-                const response = await fetch("https://fortnitecentral.genxgames.gg/api/v1/assets");
-                const json = await response.json();
-                const foundAssets = json.filter(a =>
-                    a.includes(`/${emoteInput}.uasset`)
-                );
-                if (!foundAssets || !foundAssets[0]) {
-                    animationPath.textContent = "Animation: ❌ No animation data found.";
-                    return;
-                }
-                assetPath = foundAssets[0];
-                exportData = await fetchExportData(assetPath);
+
+            if (!animations?.[0]) {
+                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                const found = all.find(a => a.includes(`/${input}.uasset`));
+                if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
+                exportData = await fetchExportData(found);
                 animations = exportData?.jsonOutput;
-                if (!animations || !animations[0]) {
-                    animationPath.textContent = "Animation: ❌ No animation data found.";
-                    return;
-                }
+                if (!animations?.[0]) { setResult(output, '❌ No animation data found.', 'error'); return; }
             }
-            const male = animations[0]?.Properties?.Animation?.AssetPathName || "None";
-            const female = animations[0]?.Properties?.AnimationFemaleOverride?.AssetPathName || "None";
-            animationPath.innerHTML = `Animation:<br>Male: ${male}<br>Female: ${female}`;
-        } catch (error) {
-            animationPath.textContent = `Animation: ❌ Error: ${error.message}`;
-            console.error(error);
+
+            const male   = animations[0]?.Properties?.Animation?.AssetPathName || 'None';
+            const female = animations[0]?.Properties?.AnimationFemaleOverride?.AssetPathName || 'None';
+            setResult(output, `<b>Male:</b> ${male}<br><b>Female:</b> ${female}`);
+        } catch (err) {
+            setResult(output, `❌ Error: ${err.message}`, 'error');
         }
     }
-    document.getElementById("convertEmoteToAnimation")
-        .addEventListener("click", emoteToAnimation);
+    document.getElementById('convertEmoteToAnimation').addEventListener('click', emoteToAnimation);
+    document.getElementById('emoteId').addEventListener('keydown', e => { if (e.key === 'Enter') emoteToAnimation(); });
 });
 
+// ── Emote → Audio ──
 window.addEventListener('DOMContentLoaded', () => {
+    const findAllEmoteSoundPaths = (data) => {
+        const results = [];
+        const search = (node) => {
+            if (Array.isArray(node)) return node.forEach(search);
+            if (typeof node === 'object' && node !== null) {
+                if (node.Type === 'FortAnimNotifyState_EmoteSound') {
+                    const sound1P = node.Properties?.EmoteSound1P?.ObjectPath;
+                    if (sound1P) results.push([sound1P, 'sound', node.Properties?.SoundName || '']);
+                }
+                Object.values(node).forEach(search);
+            }
+        };
+        search(data);
+        return results;
+    };
+
     async function emoteToAudio() {
-        const input = document.getElementById('emoteIdAudio').value.trim();
-        const display = document.getElementById('audioPath');
-        display.textContent = "Audio: Converting...";
-        if (!input) {
-            display.textContent = "Audio: (Please enter an Emote ID)";
-            return;
-        }
-        function convertExportPath(path) {
-            if (!path) return null;
-            if (path.startsWith('/')) path = path.slice(1);
-            const [left] = path.split('.');
-            if (left.startsWith('Game/')) {
-                return `FortniteGame/Content/${left.slice(5)}.uasset`;
-            } else if (left.startsWith('SparksCosmetics/')) {
-                const [plugin, ...rest] = left.split('/');
-                return `FortniteGame/Plugins/GameFeatures/FM/${plugin}/Content/${rest.join('/')}.uasset`;
-            } else if (left.startsWith('FigureCosmetics/')) {
-                const [plugin, ...rest] = left.split('/');
-                return `FortniteGame/Plugins/GameFeatures/Juno/${plugin}/Content/${rest.join('/')}.uasset`;
-            } else {
-                const [plugin, ...rest] = left.split('/');
-                return `FortniteGame/Plugins/GameFeatures/${plugin}/Content/${rest.join('/')}.uasset`;
-            }
-        }
-        const findAllEmoteSoundPaths = (data) => {
-            const results = [];
-            const search = (node) => {
-                if (Array.isArray(node)) return node.forEach(search);
-                if (typeof node === 'object' && node !== null) {
-                    if (node.Type === 'FortAnimNotifyState_EmoteSound') {
-                        const sound1P = node.Properties?.EmoteSound1P?.ObjectPath;
-                        // const sound3P = node.Properties?.EmoteSound3P?.ObjectPath;
-                        if (sound1P) results.push([sound1P, "sound", node.Properties?.SoundName || ""]);
-                        // if (sound3P) results.push([sound3P, "sound", node.Properties?.SoundName || ""]);
-                    }
-                    Object.values(node).forEach(search);
-                }
-            };
-            search(data);
-            return results;
-        };
-        const findAllSoundWavePaths = (data) => {
-            const results = [];
-            const search = (obj) => {
-                if (Array.isArray(obj)) obj.forEach(search);
-                else if (typeof obj === 'object' && obj !== null) {
-                    if (obj.ObjectName?.includes("SoundWave")) {
-                        results.push(obj.ObjectPath);
-                    }
-                    Object.values(obj).forEach(search);
-                }
-            };
-            search(data);
-            return results;
-        };
-        const replaceLastSegment = (path) => {
-            if (!path.includes(".")) return path;
-            const [base] = path.split(".");
-            const last = base.split("/").pop();
-            return `${base}.${last}`;
-        };
-        const fetchExportData = async (path) => {
-            if (!path) return null;
-            try {
-                const res1 = await fetch(`https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`);
-                const json1 = await res1.json();
-                if (!json1.errored || json1.note !== "Unable to find package") return json1;
-            } catch (err) {
-                console.warn("Primary source failed:", err);
-            }
-            try {
-                const res2 = await fetch(`https://export-service.dillyapis.com/v1/export?path=${encodeURIComponent(path)}`);
-                return await res2.json();
-            } catch (err) {
-                console.warn("Fallback source failed:", err);
-                return null;
-            }
-        };
+        const input  = document.getElementById('emoteIdAudio').value.trim();
+        const output = document.getElementById('audioPath');
+        if (!input) { setResult(output, 'Please enter an Emote ID.', 'error'); return; }
+        setLoading(output, 'Fetching audio...');
         try {
-            const url = `https://fortniteapi.io/v2/items/get?id=${encodeURIComponent(input)}`;
-            const res = await fetch(url, {
-                method: "GET",
-                headers: {
-                    "Authorization": "5d8b45aa-b9bd55f8-1f355ec5-fb6b123a",
-                    "Content-Type": "application/json"
-                }
+            const res  = await fetch(`https://fortniteapi.io/v2/items/get?id=${encodeURIComponent(input)}`, {
+                headers: { 'Authorization': '5d8b45aa-b9bd55f8-1f355ec5-fb6b123a' }
             });
             const json = await res.json();
             const assetId = json?.item?.path;
             let assetPath = convertExportPath(assetId);
+
             if (!assetId) {
-                const response = await fetch("https://fortnitecentral.genxgames.gg/api/v1/assets");
-                const json = await response.json();
-                const foundAssets = json.filter(a =>
-                    a.includes(`/${input}.uasset`)
-                );
-                if (!foundAssets || !foundAssets[0]) {
-                    display.textContent = "Audio: ❌ No audio data found.";
-                    return;
-                }
-                assetPath = foundAssets[0];
+                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                const found = all.find(a => a.includes(`/${input}.uasset`));
+                if (!found) { setResult(output, '❌ No audio data found.', 'error'); return; }
+                assetPath = found;
             }
+
             const animationExport = await fetchExportData(assetPath);
             let animationPath = animationExport?.jsonOutput?.[0]?.Properties?.Animation?.AssetPathName;
+
             if (!animationPath) {
-                const response = await fetch("https://fortnitecentral.genxgames.gg/api/v1/assets");
-                const json = await response.json();
-                const foundAssets = json.filter(a =>
-                    a.includes(`/${input}.uasset`)
-                );
-                if (!foundAssets || !foundAssets[0]) {
-                    display.textContent = "Audio: ❌ No audio data found.";
-                    return;
-                }
-                assetPath = foundAssets[0];
-                const exportData = await fetchExportData(assetPath);
+                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                const found = all.find(a => a.includes(`/${input}.uasset`));
+                if (!found) { setResult(output, '❌ No audio data found.', 'error'); return; }
+                const exportData = await fetchExportData(found);
                 animationPath = exportData?.jsonOutput?.[0]?.Properties?.Animation?.AssetPathName;
-                if (!animationPath) {
-                    display.textContent = "Audio: ❌ No audio data found.";
-                    return;
-                }
+                if (!animationPath) { setResult(output, '❌ No audio data found.', 'error'); return; }
             }
-            const currentPath = convertExportPath(animationPath);
-            const exportData = await fetchExportData(currentPath);
+
+            const currentPath  = convertExportPath(animationPath);
+            const exportData   = await fetchExportData(currentPath);
             const soundEntries = findAllEmoteSoundPaths(exportData?.jsonOutput || []);
-            if (!soundEntries.length) {
-                display.textContent = "Audio: ❌ No EmoteSound found.";
-                return;
+
+            if (!soundEntries.length) { setResult(output, '❌ No EmoteSound found.', 'error'); return; }
+
+            let lines = [];
+            for (const [foundPath] of soundEntries) {
+                const soundPath    = convertExportPath(foundPath);
+                const audioData    = await fetchExportData(soundPath);
+                const soundWaves   = findAllSoundWavePaths(audioData?.jsonOutput || []);
+                if (soundWaves.length) lines.push(...soundWaves.map(replaceLastSegment));
             }
-            let html = "Audio Paths:<br>";
-            for (const [foundPath, type, name] of soundEntries) {
-                const soundPath = convertExportPath(foundPath);
-                const audioData = await fetchExportData(soundPath);
-                const soundWavePaths = findAllSoundWavePaths(audioData?.jsonOutput || []);
-                if (soundWavePaths.length) {
-                    const formatted = soundWavePaths.map(replaceLastSegment);
-                    html += `${formatted.join("<br>")}<br>`;
-                }
-            }
-            display.innerHTML = html;
+            setResult(output, lines.join('<br>') || '❌ No SoundWave paths found.');
         } catch (err) {
-            console.error(err);
-            display.textContent = `Audio: ❌ Error: ${err.message}`;
+            setResult(output, `❌ Error: ${err.message}`, 'error');
         }
     }
-    document.getElementById("convertEmoteToAudio")
-        .addEventListener("click", emoteToAudio);
+    document.getElementById('convertEmoteToAudio').addEventListener('click', emoteToAudio);
+    document.getElementById('emoteIdAudio').addEventListener('keydown', e => { if (e.key === 'Enter') emoteToAudio(); });
 });
 
-
+// ── Aura → VFX ──
 window.addEventListener('DOMContentLoaded', () => {
     async function auraToVFX() {
-        const auraInput = document.getElementById('auraId').value.trim();
-        const vfxDisplay = document.getElementById('vfxPath');
-        vfxDisplay.textContent = "Converting...";
-        if (!auraInput) {
-            vfxDisplay.textContent = "VFX: (Please enter an Aura ID)";
-            return;
-        }
+        const input  = document.getElementById('auraId').value.trim();
+        const output = document.getElementById('vfxPath');
+        if (!input) { setResult(output, 'Please enter an Aura ID.', 'error'); return; }
+        setLoading(output, 'Fetching VFX...');
         try {
-            const idTypes = ["sparksaura"];
-            let url;
-            if (idTypes.includes(auraInput.toLowerCase().split("_")[0])) {
-                url = `https://fortnite-api.com/v2/cosmetics/br/${auraInput}?responseFlags=7`;
-            } else {
-                url = `https://fortnite-api.com/v2/cosmetics/br/search?name=${encodeURIComponent(auraInput)}&responseFlags=7`;
-            }
-            const response = await fetch(url);
-            const json = await response.json();
-            const data = json.data;
-            const assetId = data?.path;
-            let exportRes = await fetch(`https://fortnitecentral.genxgames.gg/api/v1/export?path=${assetId}&raw=true`);
-            vfxDisplay.textContent = exportRes;
-            let exportJson = await exportRes.json();
-            if (exportJson.errored) {
-                if (exportJson.note === "Unable to find package") {
-                    exportRes = await fetch(`https://export-service.dillyapis.com/v1/export?path=${assetPath}`);
-                    exportJson = await exportRes.json();
-                    if (exportJson.code === 400 || exportJson.code === 404 || exportJson.error) {
-                        vfxDisplay.textContent = `Error: ${exportJson.error_description || "Failed to fetch from alternative API."}`;
-                        return;
-                    }
-                } else {
-                    vfxDisplay.textContent = `Error: ${exportJson.note}`;
-                    return;
-                }
-            }
+            const isId = input.toLowerCase().startsWith('sparksaura');
+            const url  = isId
+                ? `https://fortnite-api.com/v2/cosmetics/br/${input}?responseFlags=7`
+                : `https://fortnite-api.com/v2/cosmetics/br/search?name=${encodeURIComponent(input)}&responseFlags=7`;
+            const json    = await (await fetch(url)).json();
+            const assetId = json.data?.path;
+
+            const exportRes  = await fetch(`https://fortnitecentral.genxgames.gg/api/v1/export?path=${assetId}&raw=true`);
+            const exportJson = await exportRes.json();
+
             const jsonOutput = exportJson.jsonOutput;
-            const mainPath = jsonOutput[0]?.Properties?.SustainSystem?.AssetPathName || "None";
-            const startPath = jsonOutput[0]?.Properties?.StartSystem?.AssetPathName || "None";
-            const stopPath = jsonOutput[0]?.Properties?.StopSystem?.AssetPathName || "None";
-            vfxDisplay.innerHTML = `VFX:<br>Main Path: ${mainPath}<br>Start Path: ${startPath}<br>Stop Path: ${stopPath}`;
-        } catch (error) {
-            console.error(error);
-            vfxDisplay.textContent = `Error: ${error.message}`;
+            const mainPath  = jsonOutput?.[0]?.Properties?.SustainSystem?.AssetPathName || 'None';
+            const startPath = jsonOutput?.[0]?.Properties?.StartSystem?.AssetPathName  || 'None';
+            const stopPath  = jsonOutput?.[0]?.Properties?.StopSystem?.AssetPathName   || 'None';
+
+            setResult(output, `<b>Main:</b> ${mainPath}<br><b>Start:</b> ${startPath}<br><b>Stop:</b> ${stopPath}`);
+        } catch (err) {
+            setResult(output, `❌ Error: ${err.message}`, 'error');
         }
     }
-    document.getElementById("convertAuraToVFX")
-        .addEventListener("click", auraToVFX);
+    document.getElementById('convertAuraToVFX').addEventListener('click', auraToVFX);
+    document.getElementById('auraId').addEventListener('keydown', e => { if (e.key === 'Enter') auraToVFX(); });
 });
 
+// ── MusicPack → Audio ──
 window.addEventListener('DOMContentLoaded', () => {
     async function musicpackToAudio() {
-        const musicInput = document.getElementById('musicpackId').value.trim();
-        const audioDisplay = document.getElementById('audioPath1');
-        audioDisplay.textContent = "Converting...";
-        if (!musicInput) {
-            audioDisplay.textContent = "Audio: (Please enter an MusicPack ID)";
-            return;
-        }
-        const convertExportPath = (path) => {
-            if (path.startsWith("/")) path = path.slice(1);
-            const [left] = path.includes(".") ? path.split(".", 1) : [path];
-            if (left.startsWith("Game/")) {
-                return "FortniteGame/Content/" + left.slice(5) + ".uasset";
-            } else {
-                const [plugin, ...rest] = left.split("/");
-                return `FortniteGame/Plugins/GameFeatures/${plugin}/Content/${rest.join("/")}.uasset`;
-            }
-        };
-        const findAllSoundWavePaths = (data) => {
-            const results = [];
-            const search = (obj) => {
-                if (Array.isArray(obj)) {
-                    obj.forEach(search);
-                } else if (typeof obj === 'object' && obj !== null) {
-                    if (obj.ObjectName?.includes("SoundWave")) {
-                        results.push(obj.ObjectPath);
-                    }
-                    Object.values(obj).forEach(search);
-                }
-            };
-            search(data);
-            return results;
-        };
-        const replaceLastSegment = (path) => {
-            if (path.includes(".")) {
-                const [base] = path.split(".");
-                const lastWord = base.split("/").pop();
-                return `${base}.${lastWord}`;
-            }
-            return path;
-        };
+        const input  = document.getElementById('musicpackId').value.trim();
+        const output = document.getElementById('audioPath1');
+        if (!input) { setResult(output, 'Please enter a MusicPack ID.', 'error'); return; }
+        setLoading(output, 'Fetching audio...');
         try {
-            let url;
-            const idPrefix = musicInput.toLowerCase().split("_")[0];
-            if (idPrefix === "musicpack") {
-                url = `https://fortnite-api.com/v2/cosmetics/br/${musicInput}?responseFlags=7`;
-            } else {
-                url = `https://fortnite-api.com/v2/cosmetics/br/search?name=${encodeURIComponent(musicInput)}&backendType=AthenaMusicPack&responseFlags=7`;
-            }
-            const res = await fetch(url);
-            const json = await res.json();
+            const isId = input.toLowerCase().startsWith('musicpack');
+            const url  = isId
+                ? `https://fortnite-api.com/v2/cosmetics/br/${input}?responseFlags=7`
+                : `https://fortnite-api.com/v2/cosmetics/br/search?name=${encodeURIComponent(input)}&backendType=AthenaMusicPack&responseFlags=7`;
+            const json = await (await fetch(url)).json();
             const data = json.data;
-            if (!data) {
-                audioDisplay.textContent = "No data found for this cosmetic.";
-                return;
-            }
+            if (!data) { setResult(output, '❌ No data found.', 'error'); return; }
+
             const assetId = data?.path;
-            const primaryExportUrl = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${assetId}&raw=true`;
-            const fallbackExportUrl = `https://export-service.dillyapis.com/v1/export?path=${assetId}`;
             let exportData;
             try {
-                const res1 = await fetch(primaryExportUrl);
-                exportData = await res1.json();
-                if (exportData.errored && exportData.note === "Unable to find package") {
-                    const res2 = await fetch(fallbackExportUrl);
-                    exportData = await res2.json();
+                const r1 = await fetch(`https://fortnitecentral.genxgames.gg/api/v1/export?path=${assetId}&raw=true`);
+                exportData = await r1.json();
+                if (exportData.errored && exportData.note === 'Unable to find package') {
+                    const r2 = await fetch(`https://export-service.dillyapis.com/v1/export?path=${assetId}`);
+                    exportData = await r2.json();
                 }
             } catch {
-                const res2 = await fetch(fallbackExportUrl);
-                exportData = await res2.json();
+                const r2 = await fetch(`https://export-service.dillyapis.com/v1/export?path=${assetId}`);
+                exportData = await r2.json();
             }
+
             const musicAssetPath = exportData?.jsonOutput?.[0]?.Properties?.FrontEndLobbyMusic?.AssetPathName;
-            if (!musicAssetPath) {
-                audioDisplay.textContent = "No FrontEndLobbyMusic path found.";
-                return;
-            }
+            if (!musicAssetPath) { setResult(output, '❌ No FrontEndLobbyMusic path found.', 'error'); return; }
+
             const convertedPath = convertExportPath(musicAssetPath);
-            const audioPrimaryUrl = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${convertedPath}&raw=true`;
-            const audioFallbackUrl = `https://export-service.dillyapis.com/v1/export?path=${convertedPath}`;
             let audioData;
             try {
-                const audioRes1 = await fetch(audioPrimaryUrl);
-                audioData = await audioRes1.json();
-                if (audioData.errored && audioData.note === "Unable to find package") {
-                    const audioRes2 = await fetch(audioFallbackUrl);
-                    audioData = await audioRes2.json();
+                const r1 = await fetch(`https://fortnitecentral.genxgames.gg/api/v1/export?path=${convertedPath}&raw=true`);
+                audioData = await r1.json();
+                if (audioData.errored && audioData.note === 'Unable to find package') {
+                    const r2 = await fetch(`https://export-service.dillyapis.com/v1/export?path=${convertedPath}`);
+                    audioData = await r2.json();
                 }
             } catch {
-                const audioRes2 = await fetch(audioFallbackUrl);
-                audioData = await audioRes2.json();
+                const r2 = await fetch(`https://export-service.dillyapis.com/v1/export?path=${convertedPath}`);
+                audioData = await r2.json();
             }
-            const soundWavePaths = findAllSoundWavePaths(audioData.jsonOutput || []);
-            if (!soundWavePaths.length) {
-                audioDisplay.textContent = "No SoundWave paths found in this music pack.";
-                return;
-            }
-            const finalPaths = soundWavePaths.map(replaceLastSegment);
-            audioDisplay.innerHTML = `Audio Paths:<br>${finalPaths.map(p => p).join("<br>")}`;
+
+            const soundWaves = findAllSoundWavePaths(audioData.jsonOutput || []);
+            if (!soundWaves.length) { setResult(output, '❌ No SoundWave paths found.', 'error'); return; }
+
+            setResult(output, soundWaves.map(replaceLastSegment).join('<br>'));
         } catch (err) {
-            console.error(err);
-            audioDisplay.textContent = `Error: ${err.message}`;
+            setResult(output, `❌ Error: ${err.message}`, 'error');
         }
     }
-    document.getElementById("convertMusicPackToAudio")
-        .addEventListener("click", musicpackToAudio);
+    document.getElementById('convertMusicPackToAudio').addEventListener('click', musicpackToAudio);
+    document.getElementById('musicpackId').addEventListener('keydown', e => { if (e.key === 'Enter') musicpackToAudio(); });
 });

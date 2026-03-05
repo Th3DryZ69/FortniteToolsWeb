@@ -1,157 +1,239 @@
+// ── Tooltip ──
+const tooltip = document.createElement('div');
+tooltip.id = 'ft-tooltip';
+document.body.appendChild(tooltip);
+
+let tooltipTimeout = null;
+
+function attachTooltip(el, text) {
+    if (!text) return;
+
+    el.addEventListener('mouseenter', () => {
+        // Only show if the text is actually truncated (scrollWidth > clientWidth)
+        if (el.scrollWidth <= el.clientWidth) return;
+
+        clearTimeout(tooltipTimeout);
+        tooltip.textContent = text;
+        tooltip.classList.add('visible');
+        positionTooltip(el);
+    });
+
+    el.addEventListener('mousemove', () => {
+        positionTooltip(el);
+    });
+
+    el.addEventListener('mouseleave', () => {
+        tooltipTimeout = setTimeout(() => tooltip.classList.remove('visible'), 80);
+    });
+}
+
+function positionTooltip(el) {
+    const rect   = el.getBoundingClientRect();
+    const ttW    = Math.min(tooltip.offsetWidth, window.innerWidth - 16);
+    const ttH    = tooltip.offsetHeight;
+    const margin = 8;
+
+    // Center horizontally on the element, then clamp inside viewport
+    let left = rect.left + rect.width / 2 - ttW / 2;
+    left = Math.max(margin, Math.min(left, window.innerWidth - ttW - margin));
+
+    // Prefer above, flip below if not enough room
+    let top;
+    if (rect.top - ttH - margin >= 0) {
+        top = rect.top - ttH - margin + window.scrollY;
+    } else {
+        top = rect.bottom + margin + window.scrollY;
+    }
+
+    // Clamp max-width to viewport on small screens
+    tooltip.style.maxWidth = (window.innerWidth - margin * 2) + 'px';
+    tooltip.style.left = left + 'px';
+    tooltip.style.top  = top + 'px';
+}
+
+// ── Clipboard ──
 function copyToClipboard(text, btn) {
     navigator.clipboard.writeText(text).then(() => {
         btn.innerHTML = '✔️';
-        setTimeout(() => {
-            btn.innerHTML = '📋';
-        }, 2000);
+        setTimeout(() => { btn.innerHTML = '📋'; }, 2000);
     });
 }
+
+function makeCopyBtn(text) {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.title = 'Copy';
+    btn.innerHTML = '📋';
+    btn.onclick = () => copyToClipboard(text, btn);
+    return btn;
+}
+
+// ── Cards ──
 const meshDiv = document.getElementById('meshDiv');
+
 fetch('../data/devicemeshs.json')
-    .then(response => response.json())
+    .then(r => r.json())
     .then(data => {
-        const table = document.createElement('table');
-        const thead = document.createElement('thead');
-        const tbody = document.createElement('tbody');
-        thead.innerHTML = `
-            <tr>
-                <th>Device / Image</th>
-                <th>Setting</th>
-                <th>Device Assets Path</th>
-                <th>Custom Option Key</th>
-                <th>Custom Option Value Example (1.000000 = 1)</th>
-            </tr>
-        `;
         Object.entries(data)
             .sort(([a], [b]) => {
-                const aStartsWithLetter = /^[a-zA-Z]/.test(a);
-                const bStartsWithLetter = /^[a-zA-Z]/.test(b);
-                // Si A est lettre et B non → A avant
-                if (aStartsWithLetter && !bStartsWithLetter) return -1;
-                // Si B est lettre et A non → B avant
-                if (!aStartsWithLetter && bStartsWithLetter) return 1;
-                // Sinon tri normal
+                const aL = /^[a-zA-Z]/.test(a);
+                const bL = /^[a-zA-Z]/.test(b);
+                if (aL && !bL) return -1;
+                if (!aL && bL) return 1;
                 return a.localeCompare(b, undefined, { sensitivity: 'base' });
             })
             .forEach(([deviceName, deviceData]) => {
-            if (deviceData.dispo === false) return;
-            const settings = Object.entries(deviceData.settings);
-            const rowSpan = settings.length;
-            const trTitle = document.createElement('tr');
-            const tdTitle = document.createElement('td');
-            tdTitle.colSpan = 5;
-            tdTitle.className = "device-title";
-            let titleHtml = `<strong>${deviceName}</strong>`;
-            titleHtml += ` | <span class="playset"> Playset: ${deviceData.playset}</span>`;
-            if (deviceData.important) {
-                titleHtml += `<br><span class="important">!!!Important!!! ==> ${deviceData.important}</span>`;
-            }
-            tdTitle.innerHTML = titleHtml;
-            trTitle.appendChild(tdTitle);
-            tbody.appendChild(trTitle);
-            settings.forEach(([settingName, settingData], index) => {
-                const tr = document.createElement('tr');
-                if (index === 0) {
-                    const tdImg = document.createElement('td');
-                    tdImg.rowSpan = rowSpan;
-                    tdImg.innerHTML = deviceData.image ? `<img src="${deviceData.image}" alt="${deviceName}">` : '';
-                    tr.appendChild(tdImg);
-                }
-                const tdSetting = document.createElement('td');
-                tdSetting.textContent = settingName;
-                tr.appendChild(tdSetting);
-                if (index === 0) {
-                    const tdPath = document.createElement('td');
-                    tdPath.rowSpan = rowSpan;
-                    tdPath.style.position = "relative";
-                    tdPath.textContent = deviceData.path || '';
-                    const btn = document.createElement('button');
-                    btn.className = "copy-btn";
-                    btn.title = "Copy";
-                    btn.innerHTML = '📋';
-                    btn.style.position = "absolute";
-                    btn.style.top = "4px";
-                    btn.style.right = "4px";
-                    btn.onclick = function() {
-                        copyToClipboard(deviceData.path || '', btn);
-                    };
-                    tdPath.appendChild(btn);
-                    tr.appendChild(tdPath);
-                }
-                const tdKey = document.createElement('td');
-                tdKey.style.position = "relative";
-                tdKey.textContent = settingData["option key"];
-                const btnKey = document.createElement('button');
-                btnKey.className = "copy-btn";
-                btnKey.title = "Copy";
-                btnKey.innerHTML = '📋';
-                btnKey.style.position = "absolute";
-                btnKey.style.top = "4px";
-                btnKey.style.right = "4px";
-                btnKey.onclick = function() {
-                    copyToClipboard(settingData["option key"], btnKey);
-                };
-                tdKey.appendChild(btnKey);
-                tr.appendChild(tdKey);
-                const tdValue = document.createElement('td');
-                tdValue.style.position = "relative";
-                tdValue.textContent = settingData.value;
-                const btnValue = document.createElement('button');
-                btnValue.className = "copy-btn";
-                btnValue.title = "Copy";
-                btnValue.innerHTML = '📋';
-                btnValue.style.position = "absolute";
-                btnValue.style.top = "4px";
-                btnValue.style.right = "4px";
-                btnValue.onclick = function() {
-                    copyToClipboard(settingData.value, btnValue);
-                };
-                tdValue.appendChild(btnValue);
-                tr.appendChild(tdValue);
-                tbody.appendChild(tr);
-            });
-        });
-        table.appendChild(thead);
-        table.appendChild(tbody);
-        meshDiv.appendChild(table);
-    })
-.catch(error => {
-    console.error('Error loading JSON:', error);
-});
+                if (deviceData.dispo === false) return;
 
-const searchToggle = document.getElementById("searchToggle");
-const searchInput = document.getElementById("searchInput");
-searchToggle.addEventListener("click", () => {
-    searchInput.classList.toggle("active");
-    searchInput.focus();
-});
+                const card = document.createElement('div');
+                card.className = 'device-card';
+                card.dataset.deviceName = deviceName.toLowerCase();
 
-fetch('../data/devicemeshs.json')
-    .then(response => response.json())
-    .then(data => {
-        const deviceNames = Object.keys(data);
-        searchInput.addEventListener("input", function () {
-            const filter = this.value.trim().toLowerCase();
-            const titles = document.querySelectorAll(".device-title");
-            titles.forEach(title => {
-                const tableRows = [];
-                let next = title.parentElement.nextElementSibling;
-                while (next && !next.querySelector(".device-title")) {
-                    tableRows.push(next);
-                    next = next.nextElementSibling;
-                }
-                const strongTag = title.querySelector("strong");
-                const deviceNameText = strongTag ? strongTag.textContent.trim().toLowerCase() : "";
-                if (filter === "" || deviceNameText.startsWith(filter)) {
-                    title.parentElement.style.display = "";
-                    tableRows.forEach(row => row.style.display = "");
+                // ── Header ──
+                const header = document.createElement('div');
+                header.className = 'card-header';
+
+                if (deviceData.image) {
+                    const img = document.createElement('img');
+                    img.className = 'card-img';
+                    img.src = deviceData.image;
+                    img.alt = deviceName;
+                    header.appendChild(img);
                 } else {
-                    title.parentElement.style.display = "none";
-                    tableRows.forEach(row => row.style.display = "none");
+                    const ph = document.createElement('div');
+                    ph.className = 'card-img-placeholder';
+                    ph.innerHTML = '📦';
+                    header.appendChild(ph);
                 }
+
+                const headerText = document.createElement('div');
+                headerText.className = 'card-header-text';
+
+                const nameEl = document.createElement('div');
+                nameEl.className = 'card-device-name';
+                nameEl.textContent = deviceName;
+                attachTooltip(nameEl, deviceName);
+
+                const playsetEl = document.createElement('div');
+                playsetEl.className = 'card-playset';
+                if (deviceData.playset) {
+                    playsetEl.innerHTML = `<span class="card-playset-label">Playset: </span>${deviceData.playset}`;
+                    attachTooltip(playsetEl, 'Playset: ' + deviceData.playset);
+                }
+
+                headerText.appendChild(nameEl);
+                headerText.appendChild(playsetEl);
+                header.appendChild(headerText);
+                card.appendChild(header);
+
+                // ── Important ──
+                if (deviceData.important) {
+                    const imp = document.createElement('div');
+                    imp.className = 'card-important';
+                    imp.textContent = `⚠️ ${deviceData.important}`;
+                    card.appendChild(imp);
+                }
+
+                // ── Path ──
+                if (deviceData.path) {
+                    const pathRow = document.createElement('div');
+                    pathRow.className = 'card-path';
+
+                    const label = document.createElement('span');
+                    label.className = 'card-path-label';
+                    label.textContent = 'Path';
+
+                    const val = document.createElement('span');
+                    val.className = 'card-path-value';
+                    val.textContent = deviceData.path;
+                    attachTooltip(val, deviceData.path);
+
+                    pathRow.appendChild(label);
+                    pathRow.appendChild(val);
+                    pathRow.appendChild(makeCopyBtn(deviceData.path));
+                    card.appendChild(pathRow);
+                }
+
+                // ── Settings ──
+                const settings = Object.entries(deviceData.settings || {});
+                if (settings.length > 0) {
+                    const settingsDiv = document.createElement('div');
+                    settingsDiv.className = 'card-settings';
+
+                    settings.forEach(([settingName, settingData]) => {
+                        const row = document.createElement('div');
+                        row.className = 'setting-row';
+
+                        const nameCell = document.createElement('div');
+                        nameCell.className = 'setting-name';
+                        nameCell.textContent = settingName;
+                        attachTooltip(nameCell, settingName);
+
+                        const fieldsCell = document.createElement('div');
+                        fieldsCell.className = 'setting-fields';
+
+                        // Key line
+                        const keyLine = document.createElement('div');
+                        keyLine.className = 'setting-field-line';
+
+                        const keyTag = document.createElement('span');
+                        keyTag.className = 'field-tag';
+                        keyTag.textContent = 'Key';
+
+                        const keyText = document.createElement('span');
+                        keyText.className = 'field-text';
+                        keyText.textContent = settingData['option key'] || '';
+                        attachTooltip(keyText, settingData['option key'] || '');
+
+                        keyLine.appendChild(keyTag);
+                        keyLine.appendChild(keyText);
+                        keyLine.appendChild(makeCopyBtn(settingData['option key'] || ''));
+
+                        // Value line
+                        const valLine = document.createElement('div');
+                        valLine.className = 'setting-field-line';
+
+                        const valTag = document.createElement('span');
+                        valTag.className = 'field-tag';
+                        valTag.textContent = 'Val';
+
+                        const valText = document.createElement('span');
+                        valText.className = 'field-text';
+                        valText.textContent = settingData.value || '';
+                        attachTooltip(valText, settingData.value || '');
+
+                        valLine.appendChild(valTag);
+                        valLine.appendChild(valText);
+                        valLine.appendChild(makeCopyBtn(settingData.value || ''));
+
+                        fieldsCell.appendChild(keyLine);
+                        fieldsCell.appendChild(valLine);
+                        row.appendChild(nameCell);
+                        row.appendChild(fieldsCell);
+                        settingsDiv.appendChild(row);
+                    });
+
+                    card.appendChild(settingsDiv);
+                }
+
+                meshDiv.appendChild(card);
             });
-        });
     })
-    .catch(error => {
-        console.error('Error loading JSON:', error);
+    .catch(err => console.error('Error loading JSON:', err));
+
+// ── Search ──
+const searchToggle = document.getElementById('searchToggle');
+const searchInput  = document.getElementById('searchInput');
+
+searchToggle.addEventListener('click', () => {
+    searchInput.classList.toggle('active');
+    if (searchInput.classList.contains('active')) searchInput.focus();
+});
+
+searchInput.addEventListener('input', function () {
+    const filter = this.value.trim().toLowerCase();
+    document.querySelectorAll('.device-card').forEach(card => {
+        const match = !filter || card.dataset.deviceName.startsWith(filter);
+        card.style.display = match ? '' : 'none';
     });
+});

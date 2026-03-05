@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../style/pathModifier.css">
 </head>
 <body>
-    <header> 
+    <header>
         <div id="header-container">
             <div id="logo">
                 <h1><a href="../../index.html">Fortnite Tools</a></h1>
@@ -28,25 +28,35 @@
         </div>
     </header>
     <main>
-        <section>
-            <div id="pathModifier">
-                <div>
-                    <p>Enter Path</p>
-                    <input type="text" id="inputPath" placeholder="FortniteGame/Content/Items/Traps/Blueprints/Trap_Floor_Player_Jump_Pad" autocomplete="off"/>
-                    <button id="clearBtn">Delete</button>
-                </div>
-                <div>
-                    <input type="checkbox" id="addC" />
-                    <p>Add "_C" to the end</p>
-                    <button id="generateBtn">Generate</button>
-                </div>
-                <div >
-                    <p>Modified Path</p>
-                    <input type="text" id="modifiedPath" readonly />
-                    <button id="copyBtn">Copy</button>
-                </div>
+        <div id="pathModifier">
+
+            <!-- Input path -->
+            <div class="pm-row">
+                <span class="pm-label">Path</span>
+                <input type="text" id="inputPath"
+                    placeholder="FortniteGame/Content/Items/Traps/Blueprints/Trap_Floor_Player_Jump_Pad"
+                    autocomplete="off" />
+                <button id="clearBtn">Clear</button>
             </div>
-        </section>
+
+            <!-- Options -->
+            <div class="pm-row">
+                <span class="pm-label">Options</span>
+                <label class="checkbox-group">
+                    <input type="checkbox" id="addC" />
+                    Add "_C" to the end
+                </label>
+                <button id="generateBtn">Generate</button>
+            </div>
+
+            <!-- Output -->
+            <div class="pm-row">
+                <span class="pm-label">Result</span>
+                <input type="text" id="modifiedPath" readonly placeholder="Result will appear here..." />
+                <button id="copyBtn">Copy</button>
+            </div>
+
+        </div>
     </main>
     <script src="https://kit.fontawesome.com/1d1c3ac163.js" crossorigin="anonymous"></script>
     <script src="../js/pathModifier.js"></script>

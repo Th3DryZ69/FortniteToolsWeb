@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../style/convert.css">
 </head>
 <body>
-    <header> 
+    <header>
         <div id="header-container">
             <div id="logo">
                 <h1><a href="../../index.html">Fortnite Tools</a></h1>
@@ -20,7 +20,7 @@
                     <li><a href="../../index.html">Home</a></li>
                     <li><a href="./deviceMeshs.html">DeviceMeshs</a></li>
                     <li><a href="./searchAssets.html">SearchAssets</a></li>
-                    <li><a href=""  style="color: #ec7519">Convert</a></li>
+                    <li><a href="" style="color: #ec7519">Convert</a></li>
                     <li><a href="./pathModifier.html">PathModifier</a></li>
                     <li><a href="./id.html">Id</a></li>
                 </ul>
@@ -28,34 +28,49 @@
         </div>
     </header>
     <main>
-        <section>
-            <div id="convert">
-                <div id="emoteToAnimation">
-                    <p>Emote to Animation</p>
+        <div id="convert">
+
+            <!-- Emote → Animation -->
+            <div id="emoteToAnimation">
+                <p>Emote to Animation</p>
+                <div class="card-body">
                     <input type="text" id="emoteId" placeholder="EID_DanceMoves" autocomplete="off">
                     <button id="convertEmoteToAnimation">Convert</button>
-                    <p id="animationPath">Animation: -</p>
-                </div>
-                <div id="emoteToAudio">
-                    <p>Emote to Audio</p>
-                    <input type="text" id="emoteIdAudio" placeholder="EID_DanceMoves" autocomplete="off">
-                    <button id="convertEmoteToAudio">Convert</button>
-                    <p id="audioPath">Audio: -</p>
-                </div>
-                <div id="auraToVFX">
-                    <p>Aura to VFX</p>
-                    <input type="text" id="auraId" placeholder="SparksAura_BoomBox" autocomplete="off">
-                    <button id="convertAuraToVFX">Convert</button>
-                    <p id="vfxPath">VFX: -</p>
-                </div>
-                <div id="musicpackToAudio">
-                    <p>MusicPack to Audio</p>
-                    <input type="text" id="musicpackId" placeholder="MusicPack_001_Floss" autocomplete="off">
-                    <button id="convertMusicPackToAudio">Convert</button>
-                    <p id="audioPath1">Audio: -</p>
+                    <div class="result-box" id="animationPath">Animation: —</div>
                 </div>
             </div>
-        </section>
+
+            <!-- Emote → Audio -->
+            <div id="emoteToAudio">
+                <p>Emote to Audio</p>
+                <div class="card-body">
+                    <input type="text" id="emoteIdAudio" placeholder="EID_DanceMoves" autocomplete="off">
+                    <button id="convertEmoteToAudio">Convert</button>
+                    <div class="result-box" id="audioPath">Audio: —</div>
+                </div>
+            </div>
+
+            <!-- Aura → VFX -->
+            <div id="auraToVFX">
+                <p>Aura to VFX</p>
+                <div class="card-body">
+                    <input type="text" id="auraId" placeholder="SparksAura_BoomBox" autocomplete="off">
+                    <button id="convertAuraToVFX">Convert</button>
+                    <div class="result-box" id="vfxPath">VFX: —</div>
+                </div>
+            </div>
+
+            <!-- MusicPack → Audio -->
+            <div id="musicpackToAudio">
+                <p>MusicPack to Audio</p>
+                <div class="card-body">
+                    <input type="text" id="musicpackId" placeholder="MusicPack_001_Floss" autocomplete="off">
+                    <button id="convertMusicPackToAudio">Convert</button>
+                    <div class="result-box" id="audioPath1">Audio: —</div>
+                </div>
+            </div>
+
+        </div>
     </main>
     <script src="https://kit.fontawesome.com/1d1c3ac163.js" crossorigin="anonymous"></script>
     <script src="../js/convert.js"></script>

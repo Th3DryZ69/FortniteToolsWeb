@@ -1,10 +1,12 @@
-/* Body */
 @font-face {
     font-family: 'FiraCode';
     src: url('../fonts/FiraCode-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
     margin: 0;
     padding: 0;
@@ -14,48 +16,27 @@ body {
     font-size: 13px !important;
     word-spacing: 0px !important;
 }
-.header-arrow-up {
-    position: fixed;
-    z-index: 1000;
-}
-a i{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border: 1px solid #ec7519;
-    font-size: 35px;
-    border-radius: 100%;
-    padding: 5px 10px;
-    color: #ec7519;
-}
-/* Body */
 
-/* Header */
+/* ── Header ── */
 #header-container {
-    display: flex; 
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 50px;
+    min-height: 54px;
     border-bottom: 1px solid #ec7519;
+    padding: 0 24px;
+    flex-wrap: wrap;
+    gap: 150px;
 }
-#header-container ul {
-    display: flex; 
-    list-style: none; 
-    padding: 0px;
+
+#logo h1 { margin: 0; }
+#logo h1 a { color: #ec7519; text-decoration: none; }
+nav ul { display: flex; list-style: none; padding: 0; margin: 0; gap: 20px; flex-wrap: wrap; }
+nav a { color: #929295; text-decoration: none; transition: color 0.2s; }
+nav a:hover { color: #ec7519; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    #header-container { flex-direction: column; height: auto; padding: 10px 16px; gap: 8px; }
+    nav ul { gap: 12px; justify-content: center; }
 }
-#header-container li {
-    margin: 15px;
-}
-#logo h1 a {
-    color: #ec7519;
-    text-decoration: none;
-}
-nav a {
-    color: #929295;
-    text-decoration: none;
-}
-nav a:hover {
-    color: #ec7519;
-    text-decoration: underline;
-}
-/* Header */

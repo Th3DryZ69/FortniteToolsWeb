@@ -1,4 +1,18 @@
 {
+    "Healing Cactus": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Healing Cactus.png",
+        "playset": "/CRD_HealingCactus/SetupAssets/PID_CP_Devices_HealingCactus.PID_CP_Devices_HealingCactus",
+        "path": "/CRD_HealingCactus/Device_HealingCactus.Device_HealingCactus_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Progress Based Mesh Device": {
         "dispo": true,
         "old": false,
