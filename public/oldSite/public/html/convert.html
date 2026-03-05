@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../style/convert.css">
 </head>
 <body>
-    <header>
+    <header> 
         <div id="header-container">
             <div id="logo">
                 <h1><a href="../../index.html">Fortnite Tools</a></h1>
@@ -20,7 +20,7 @@
                     <li><a href="../../index.html">Home</a></li>
                     <li><a href="./deviceMeshs.html">DeviceMeshs</a></li>
                     <li><a href="./searchAssets.html">SearchAssets</a></li>
-                    <li><a href="" style="color: #ec7519">Convert</a></li>
+                    <li><a href=""  style="color: #ec7519">Convert</a></li>
                     <li><a href="./pathModifier.html">PathModifier</a></li>
                     <li><a href="./id.html">Id</a></li>
                 </ul>
@@ -28,52 +28,37 @@
         </div>
     </header>
     <main>
-        <div id="convert">
-
-            <!-- Emote → Animation -->
-            <div id="emoteToAnimation">
-                <p>Emote to Animation</p>
-                <div class="card-body">
+        <section>
+            <div id="convert">
+                <div id="emoteToAnimation">
+                    <p>Emote to Animation</p>
                     <input type="text" id="emoteId" placeholder="EID_DanceMoves" autocomplete="off">
                     <button id="convertEmoteToAnimation">Convert</button>
-                    <div class="result-box" id="animationPath">Animation: —</div>
+                    <p id="animationPath">Animation: -</p>
                 </div>
-            </div>
-
-            <!-- Emote → Audio -->
-            <div id="emoteToAudio">
-                <p>Emote to Audio</p>
-                <div class="card-body">
+                <div id="emoteToAudio">
+                    <p>Emote to Audio</p>
                     <input type="text" id="emoteIdAudio" placeholder="EID_DanceMoves" autocomplete="off">
                     <button id="convertEmoteToAudio">Convert</button>
-                    <div class="result-box" id="audioPath">Audio: —</div>
+                    <p id="audioPath">Audio: -</p>
                 </div>
-            </div>
-
-            <!-- Aura → VFX -->
-            <div id="auraToVFX">
-                <p>Aura to VFX</p>
-                <div class="card-body">
+                <div id="auraToVFX">
+                    <p>Aura to VFX</p>
                     <input type="text" id="auraId" placeholder="SparksAura_BoomBox" autocomplete="off">
                     <button id="convertAuraToVFX">Convert</button>
-                    <div class="result-box" id="vfxPath">VFX: —</div>
+                    <p id="vfxPath">VFX: -</p>
                 </div>
-            </div>
-
-            <!-- MusicPack → Audio -->
-            <div id="musicpackToAudio">
-                <p>MusicPack to Audio</p>
-                <div class="card-body">
+                <div id="musicpackToAudio">
+                    <p>MusicPack to Audio</p>
                     <input type="text" id="musicpackId" placeholder="MusicPack_001_Floss" autocomplete="off">
                     <button id="convertMusicPackToAudio">Convert</button>
-                    <div class="result-box" id="audioPath1">Audio: —</div>
+                    <p id="audioPath1">Audio: -</p>
                 </div>
             </div>
-
-        </div>
+        </section>
     </main>
     <footer>
-        <p>If you prefer the old site, click <a href="./oldSite/index.html">here</a> (but it is not mobile-friendly).</p>
+        <p>If you prefer the new site, click <a href="../../../../index.html">here</a>.</p>
     </footer>
     <script src="https://kit.fontawesome.com/1d1c3ac163.js" crossorigin="anonymous"></script>
     <script src="../js/convert.js"></script>

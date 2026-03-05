@@ -29,7 +29,7 @@ body {
     border-bottom: 1px solid #ec7519;
     padding: 0 24px;
     flex-wrap: wrap;
-    gap: 150px;
+    gap: 10px 150px;
 }
 
 #logo h1 { margin: 0; }

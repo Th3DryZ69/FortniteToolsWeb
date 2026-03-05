@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="../style/deviceMeshs.css">
 </head>
 <body>
-    <header>
+    <header> 
         <span id="top"></span>
-        <i class="fa-solid fa-magnifying-glass search-icon" id="searchToggle"></i>
-        <input type="text" id="searchInput" placeholder="Search device..." />
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon" id="searchToggle"></i>
+            <input type="text" id="searchInput" placeholder="Search device..." />
+        </div>
         <a href="#top" class="header-arrow-up"><i class="fa-solid fa-arrow-up"></i></a>
         <div id="header-container">
             <div id="logo">
@@ -32,10 +34,14 @@
         </div>
     </header>
     <main>
-        <div id="meshDiv"></div>
+        <section>
+            <div class="table-container">
+                <div id="meshDiv"></div>
+            </div>
+        </section>
     </main>
     <footer>
-        <p>If you prefer the old site, click <a href="./oldSite/index.html">here</a> (but it is not mobile-friendly).</p>
+        <p>If you prefer the new site, click <a href="../../../../index.html">here</a>.</p>
     </footer>
     <script src="https://kit.fontawesome.com/1d1c3ac163.js" crossorigin="anonymous"></script>
     <script src="../js/deviceMeshs.js"></script>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../style/searchAssets.css">
 </head>
 <body>
-    <header>
+    <header> 
         <span id="top"></span>
         <a href="#top" class="header-arrow-up"><i class="fa-solid fa-arrow-up"></i></a>
         <div id="header-container">
@@ -30,36 +30,20 @@
         </div>
     </header>
     <main>
-        <div id="searchAssets">
-
-            <!-- Search panel -->
-            <div class="search-container">
-                <label for="keywords">Assets</label>
-                <input type="text" id="keywords" placeholder="Keywords separated by spaces or commas" autocomplete="off">
-
-                <div class="checkbox-group">
-                    <input type="checkbox" id="formatted">
+        <section>
+            <div id="searchAssets">
+                <div class="search-container">
+                    <label for="keywords">Assets: </label>
+                    <input type="text" id="keywords" placeholder="Enter keywords (separated by spaces or commas)" autocomplete="off">
                     <label for="formatted">Formatted</label>
-                </div>
-
-                <div class="checkbox-group">
+                    <input type="checkbox" id="formatted">
+                    <label for="formatted">Add '_C' the end</label>
                     <input type="checkbox" id="addC">
-                    <label for="addC">Add _C</label>
+                    <button>Search</button>
+                    <div class="loading" id="loading">
+                        Searching... <div class="spinner"></div>
+                    </div>
                 </div>
-
-                <button class="search-btn">Search</button>
-
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                    Searching...
-                </div>
-            </div>
-
-            <!-- Result count -->
-            <div id="results-count"></div>
-
-            <!-- Results table -->
-            <div class="table-wrapper">
                 <table id="resultsTable">
                     <thead>
                         <tr>
@@ -67,14 +51,15 @@
                             <th>Asset Path</th>
                         </tr>
                     </thead>
-                    <tbody id="results"></tbody>
+                    <tbody id="results">
+
+                    </tbody>
                 </table>
             </div>
-
-        </div>
+        </section>
     </main>
     <footer>
-        <p>If you prefer the old site, click <a href="./oldSite/index.html">here</a> (but it is not mobile-friendly).</p>
+        <p>If you prefer the new site, click <a href="../../../../index.html">here</a>.</p>
     </footer>
     <script src="https://kit.fontawesome.com/1d1c3ac163.js" crossorigin="anonymous"></script>
     <script src="../js/searchAssets.js"></script>

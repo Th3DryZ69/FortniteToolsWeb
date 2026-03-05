@@ -20,11 +20,11 @@ body {
     flex-direction: column;
 }
 
-main {
+/* main {
     min-height: calc(100vh - 54px);
     display: flex;
     align-items: center;
-}
+} */
 
 /* ── Header ── */
 #header-container {
@@ -35,7 +35,7 @@ main {
     border-bottom: 1px solid #ec7519;
     padding: 0 24px;
     flex-wrap: wrap;
-    gap: 150px;
+    gap: 10px 150px;
 }
 
 #logo h1 { margin: 0; }
@@ -60,7 +60,7 @@ footer a { color: #ec7519; }
 #pathModifier {
     width: 94%;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 100px auto;
     background-color: #32333d;
     border: 1px solid #3e3f4a;
     border-radius: 10px;

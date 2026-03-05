@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../style/pathModifier.css">
 </head>
 <body>
-    <header>
+    <header> 
         <div id="header-container">
             <div id="logo">
                 <h1><a href="../../index.html">Fortnite Tools</a></h1>
@@ -28,38 +28,28 @@
         </div>
     </header>
     <main>
-        <div id="pathModifier">
-
-            <!-- Input path -->
-            <div class="pm-row">
-                <span class="pm-label">Path</span>
-                <input type="text" id="inputPath"
-                    placeholder="FortniteGame/Content/Items/Traps/Blueprints/Trap_Floor_Player_Jump_Pad"
-                    autocomplete="off" />
-                <button id="clearBtn">Clear</button>
-            </div>
-
-            <!-- Options -->
-            <div class="pm-row">
-                <span class="pm-label">Options</span>
-                <label class="checkbox-group">
+        <section>
+            <div id="pathModifier">
+                <div>
+                    <p>Enter Path</p>
+                    <input type="text" id="inputPath" placeholder="FortniteGame/Content/Items/Traps/Blueprints/Trap_Floor_Player_Jump_Pad" autocomplete="off"/>
+                    <button id="clearBtn">Delete</button>
+                </div>
+                <div>
                     <input type="checkbox" id="addC" />
-                    Add "_C" to the end
-                </label>
-                <button id="generateBtn">Generate</button>
+                    <p>Add "_C" to the end</p>
+                    <button id="generateBtn">Generate</button>
+                </div>
+                <div >
+                    <p>Modified Path</p>
+                    <input type="text" id="modifiedPath" readonly />
+                    <button id="copyBtn">Copy</button>
+                </div>
             </div>
-
-            <!-- Output -->
-            <div class="pm-row">
-                <span class="pm-label">Result</span>
-                <input type="text" id="modifiedPath" readonly placeholder="Result will appear here..." />
-                <button id="copyBtn">Copy</button>
-            </div>
-
-        </div>
+        </section>
     </main>
     <footer>
-        <p>If you prefer the old site, click <a href="./oldSite/index.html">here</a> (but it is not mobile-friendly).</p>
+        <p>If you prefer the new site, click <a href="../../../../index.html">here</a>.</p>
     </footer>
     <script src="https://kit.fontawesome.com/1d1c3ac163.js" crossorigin="anonymous"></script>
     <script src="../js/pathModifier.js"></script>
