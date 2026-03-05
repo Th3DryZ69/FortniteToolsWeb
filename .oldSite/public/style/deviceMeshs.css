@@ -1,0 +1,154 @@
+/* Body */
+@font-face {
+    font-family: 'FiraCode';
+    src: url('../../../public/fonts/FiraCode-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #27272f;
+    color: #929295;
+    font-family: 'FiraCode', monospace !important;
+    font-size: 13px !important;
+    word-spacing: 0px !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+a i{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid #ec7519;
+    font-size: 35px;
+    border-radius: 100%;
+    padding: 5px 10px;
+    color: #ec7519;
+    z-index: 1000;
+}
+.search-icon {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    border: 1px solid #ec7519;
+    font-size: 29px;
+    border-radius: 100%;
+    padding: 10px 10px;
+    color: #ec7519;
+    cursor: pointer;
+    z-index: 1000;
+}
+#searchInput {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 0;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ec7519;
+    background-color: #32333d;
+    color: #929295;
+    outline: none;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+#searchInput.active {
+    width: 220px;
+    opacity: 1;
+    z-index: 1000;
+}
+/* Body */
+
+/* Header */
+#header-container {
+    display: flex; 
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid #ec7519;
+}
+#header-container ul {
+    display: flex; 
+    list-style: none; 
+    padding: 0px;
+}
+#header-container li {
+    margin: 15px;
+}
+#logo h1 a {
+    color: #ec7519;
+    text-decoration: none;
+}
+nav a {
+    color: #929295;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #ec7519;
+    text-decoration: underline;
+}
+/* Header */
+
+main {
+    flex: 1;
+}
+
+footer {
+    border-top: 1px solid #ec7519;
+    text-align: center;
+    height: 50px;
+}
+
+footer a { color: #ec7519; }
+
+.table-container table {
+    width: 80%;
+    margin: auto;
+    background-color: #32333d;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+.table-container th, td {
+    border: 1px solid #27272f;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.table-container th {
+    background-color: #494951;
+    color: #ec7519;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.table-container td img {
+    max-width: 100px;
+    display: block;
+}
+.table-container .device-title {
+    font-weight: bold;
+    text-align: left;
+    background-color: #494951;
+}
+.table-container .device-title span.important {
+    /* color: rgb(200, 29, 29); */
+    color: rgb(200, 132, 29);
+    font-weight:normal;
+}
+.table-container .copy-btn {
+    float: right;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 14px;
+    color: #333;
+}
+.table-container .copy-btn:active {
+    color: #0078d4;
+}
+/********************************************************************************************************************************/

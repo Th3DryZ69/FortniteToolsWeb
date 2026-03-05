@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>FortniteTools</title>
+    <link rel="stylesheet" href="../style/pathModifier.css">
+</head>
+<body>
+    <header> 
+        <div id="header-container">
+            <div id="logo">
+                <h1><a href="../../index.html">Fortnite Tools</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="./deviceMeshs.html">DeviceMeshs</a></li>
+                    <li><a href="./searchAssets.html">SearchAssets</a></li>
+                    <li><a href="./convert.html">Convert</a></li>
+                    <li><a href="" style="color: #ec7519">PathModifier</a></li>
+                    <li><a href="./id.html">Id</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div id="pathModifier">
+                <div>
+                    <p>Enter Path</p>
+                    <input type="text" id="inputPath" placeholder="FortniteGame/Content/Items/Traps/Blueprints/Trap_Floor_Player_Jump_Pad" autocomplete="off"/>
+                    <button id="clearBtn">Delete</button>
+                </div>
+                <div>
+                    <input type="checkbox" id="addC" />
+                    <p>Add "_C" to the end</p>
+                    <button id="generateBtn">Generate</button>
+                </div>
+                <div >
+                    <p>Modified Path</p>
+                    <input type="text" id="modifiedPath" readonly />
+                    <button id="copyBtn">Copy</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>If you prefer the new site, click <a href="../../../index.html">here</a>.</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/1d1c3ac163.js" crossorigin="anonymous"></script>
+    <script src="../js/pathModifier.js"></script>
+</body>
+</html>
