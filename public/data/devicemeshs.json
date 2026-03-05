@@ -1,5 +1,116 @@
 {
-    
+    "Progress Based Mesh Device": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Progress Based Mesh Device.png",
+        "playset": "/CRD_Fillable_Container/SetupAssets/PID_CP_Devices_Fillable_Container.PID_CP_Devices_Fillable_Container",
+        "path": "/CRD_Fillable_Container/Device_Fillable_Container.Device_Fillable_Container_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Player Movement Device": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Player Movement Device.png",
+        "playset": "/CRD_PlayerMovement/SetupAssets/PID_CP_Devices_PlayerMovement.PID_CP_Devices_PlayerMovement",
+        "path": "/CRD_PlayerMovement/Device_PlayerMovement.Device_PlayerMovement_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Player Reference": {
+        "dispo": false,
+        "old": true,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Player Reference.png",
+        "playset": "/CRD_PlayerRef/SetupAssets/PID_CP_Devices_PlayerReference.PID_CP_Devices_PlayerReference",
+        "path": "/CRD_PlayerRef/Creative_Device_PlayerRef.Creative_Device_PlayerRef_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Player Reference (V2)": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Player Reference.png",
+        "playset": "/CRD_PlayerRef/SetupAssets/PID_Device_PlayerReference.PID_Device_PlayerReference",
+        "path": "/CRD_PlayerRef/Creative_Device_PlayerRef_V2.Creative_Device_PlayerRef_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Player Spawner": {
+        "dispo": false,
+        "old": true,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Player Spawner.png",
+        "playset": "/CRD_PlayerSpawn/ItemDefinitions/PID_CP_Devices_PlayerSpawner.PID_CP_Devices_PlayerSpawner",
+        "path": "/CRD_PlayerSpawn/BP_Creative_Player_Spawner_Prop.BP_Creative_Player_Spawner_Prop_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Player Spawner (V2)": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Player Spawner.png",
+        "playset": "/CRD_PlayerSpawn/ItemDefinitions/PID_Device_PlayerSpawnPad.PID_Device_PlayerSpawnPad",
+        "path": "/CRD_PlayerSpawn/BP_Creative_Player_Spawner_Prop.BP_Creative_Player_Spawner_Prop_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Voting Group": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Voting Group.png",
+        "playset": "/CRD_Simple_Voting_Option/SetupAssets/PID_CP_Devices_Simple_Voting_Group.PID_CP_Devices_Simple_Voting_Group",
+        "path": "/CRD_Simple_Voting_Option/Device_Simple_Voting_Group.Device_Simple_Voting_Group_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Voting Option": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Voting Option.png",
+        "playset": "/CRD_Simple_Voting_Option/SetupAssets/PID_CP_Devices_Simple_Voting_Option.PID_CP_Devices_Simple_Voting_Option",
+        "path": "/CRD_Simple_Voting_Option/Device_Simple_Voting_Option.Device_Simple_Voting_Option_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Accolade": {
         "dispo": false,
         "old": true,
@@ -2414,9 +2525,9 @@
         "playset": "/CRD_SkilledInteractionDevice/SetupAssets/PID_CP_Devices_SkilledInteractionDevice.PID_CP_Devices_SkilledInteractionDevice",
         "path": "/CRD_SkilledInteractionDevice/Device_SkilledInteractionDevice.Device_SkilledInteractionDevice_C",
         "settings": {
-            "": {
-                "option key": "",
-                "value": ""
+            "HUD": {
+                "option key": "CustomWidget",
+                "value": "/Game/UI/InGame/HUD/WBP_QuickEditGrid.WBP_QuickEditGrid_C"
             }
         }
     },
@@ -3693,6 +3804,7 @@
     "Capture Area": {
         "dispo": true,
         "old": false,
+        "tag": [ "Creative" ],
         "image": "../images/devices/Capture Area.png",
         "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_CaptureArea_V2.PID_CP_Devices_CaptureArea_V2",
         "path": "/CreativeCoreDevices/Device_CaptureArea_V2.Device_CaptureArea_V2_C",
@@ -3706,6 +3818,7 @@
     "Lock Device": {
         "dispo": true,
         "old": false,
+        "tag": [ "Creative" ],
         "image": "../images/devices/Lock Device.png",
         "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_KeyLock_V2.PID_CP_Devices_KeyLock_V2",
         "path": "/CreativeCoreDevices/Device_Keylock_V2.Device_Keylock_V2_C",
@@ -3719,6 +3832,7 @@
     "Matchmaking Portal": {
         "dispo": true,
         "old": false,
+        "tag": [ "Creative" ],
         "image": "../images/devices/Matchmaking Portal.png",
         "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_MatchmakingPortal_V2.PID_CP_Devices_MatchmakingPortal_V2",
         "path": "/CreativeCoreDevices/Device_MatchmakingPortal_V2.Device_MatchmakingPortal_V2_C",
@@ -3732,9 +3846,38 @@
     "Round Settings": {
         "dispo": true,
         "old": false,
+        "tag": [ "Creative" ],
         "image": "../images/devices/Round Settings.png",
         "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_RoundSettings_V2.PID_CP_Devices_RoundSettings_V2",
         "path": "/CreativeCoreDevices/Device_RoundSettings_V2.Device_RoundSettings_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Timed Objective": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Timed Objective.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_CP_Devices_TimedObjective_V2.PID_CP_Devices_TimedObjective_V2",
+        "path": "/CreativeCoreDevices/Device_TimedObjective_V2.Device_TimedObjective_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Advanced Storm Controller": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Advanced Storm Controller.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_AdvancedStormController.PID_Device_AdvancedStormController",
+        "path": "/CreativeCoreDevices/Device_StormControllerAdvanced_V2.Device_StormControllerAdvanced_V2_C",
         "settings": {
             "": {
                 "option key": "",
@@ -3747,7 +3890,7 @@
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Air Vent.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_AirVent_V2.PID_Device_AirVent_V2",
         "path": "/CreativeCoreDevices/Device_AirVent_V2.Device_AirVent_V2_C",
         "settings": {
             "Min Knockup %": {
@@ -3764,12 +3907,54 @@
             }
         }
     },
+    "Attribute Evaluator": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Attribute Evaluator.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_AttributeEvaluator.PID_Device_AttributeEvaluator",
+        "path": "/CreativeCoreDevices/Device_AttributeEvaluator.Device_AttributeEvaluator_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Ball Spawner (Legacy)": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Ball Spawner (Legacy).png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_BallSpawner_V2.PID_Device_BallSpawner_V2",
+        "path": "/CreativeCoreDevices/Device_BallSpawner_V2.Device_BallSpawner_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Basic Storm Controller": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Basic Storm Controller.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_BasicStormController.PID_Device_BasicStormController",
+        "path": "/CreativeCoreDevices/Device_StormControllerBasic_V2.Device_StormControllerBasic_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Beacon ": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Beacon.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Beacon.PID_Device_Beacon",
         "important": "go to settings > beacon to show = badge",
         "path": "/CreativeCoreDevices/Device_Beacon_V2.Device_Beacon_V2_C",
         "settings": {
@@ -3779,12 +3964,26 @@
             }
         }
     },
+    "Billboard": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Billboard.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Billboard.PID_Device_Billboard",
+        "path": "/CreativeCoreDevices/Device_Billboard_V2.Device_Billboard_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Button": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Button.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Button.PID_Device_Button",
         "path": "/CreativeCoreDevices/Device_Button_V2.Device_Button_V2_C",
         "settings": {
             "Mesh": {
@@ -3793,12 +3992,68 @@
             }
         }
     },
+    "Capture Item Spawner": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Capture Item Spawner.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_CaptureItemSpawner.PID_Device_CaptureItemSpawner",
+        "path": "/CreativeCoreDevices/Device_CaptureItemSpawner_V2.Device_CaptureItemSpawner_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Channel": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Channel.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Channel.PID_Device_Channel",
+        "path": "/CreativeCoreDevices/Device_Channel.Device_Channel_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Class Designer": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Class Designer.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_ClassDesigner.PID_Device_ClassDesigner",
+        "path": "/CreativeCoreDevices/Device_ClassDesigner_V2.Device_ClassDesigner_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Class Selector": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Class Selector.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_ClassSelector.PID_Device_ClassSelector",
+        "path": "/CreativeCoreDevices/Device_ClassSelector_V2.Device_ClassSelector_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Color Changing Tiles": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Color Changing Tiles.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_ColorChangingTile.PID_Device_ColorChangingTile",
         "path": "/CreativeCoreDevices/Device_ColorChangingTiles_V2.Device_ColorChangingTiles_V2_C",
         "settings": {
             "Mesh": {
@@ -3812,7 +4067,7 @@
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Decal.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Decal.PID_Device_Decal",
         "path": "/CreativeCoreDevices/Device_Decal_V2.Device_Decal_V2_C",
         "settings": {
             "Material": {
@@ -3821,12 +4076,26 @@
             }
         }
     },
+    "Elimination Manager": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Elimination Manager.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_EliminationManager.PID_Device_EliminationManager",
+        "path": "/CreativeCoreDevices/Device_EliminationManager_V3.Device_EliminationManager_V3_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Explosive Device": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Explosive Device.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_ExplosiveBarrel.PID_Device_ExplosiveBarrel",
         "path": "/CreativeCoreDevices/Device_ExplosiveBarrel_V2.Device_ExplosiveBarrel_V2_C",
         "settings": {
             "Mesh": {
@@ -3851,12 +4120,54 @@
             }
         }
     },
+    "Fuel Pump": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Fuel Pump.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_FuelPump.PID_Device_FuelPump",
+        "path": "/CreativeCoreDevices/Device_FuelPump_V2.Device_FuelPump_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Geothermal Vent Gallery": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Geothermal Vent Gallery.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_GeothermalVents.PID_Device_GeothermalVents",
+        "path": "/",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Holoscreen": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Holoscreen.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_HoloScreen.PID_Device_HoloScreen",
+        "path": "/CreativeCoreDevices/Device_HoloScreen_V2.Device_HoloScreen_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "HUD Message Device": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/HUD Message Device.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_HUDMessage.PID_Device_HUDMessage",
         "path": "/CreativeCoreDevices/Device_HUDMessage_V2.Device_HUDMessage_V2_C",
         "settings": {
             "HUD": {
@@ -3873,12 +4184,40 @@
             }
         }
     },
+    "Item Granter": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Item Granter.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_ItemGranter.PID_Device_ItemGranter",
+        "path": "/CreativeCoreDevices/Device_ItemGranter_V2.Device_ItemGranter_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Item Spawner": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Item Spawner.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_ItemSpawner.PID_Device_ItemSpawner",
+        "path": "/CreativeCoreDevices/Device_ItemSpawner_V3.Device_ItemSpawner_V3_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Map Indicator Device": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Map Indicator Device.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_MapIndicator.PID_Device_MapIndicator",
         "path": "/CreativeCoreDevices/Device_MapIndicator_V2.Device_MapIndicator_V2_C",
         "settings": {
             "Material": {
@@ -3896,7 +4235,7 @@
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Movement Modulator.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_MovementModulator.PID_Device_MovementModulator",
         "important": "go to settings > apply impulse = on : for Forward Impulse and Upward Impulse",
         "path": "/CreativeCoreDevices/Device_MovementModulator_V2.Device_MovementModulator_V2_C",
         "settings": {
@@ -3919,7 +4258,7 @@
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Objective.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Objective.PID_Device_Objective",
         "path": "/CreativeCoreDevices/Device_Objective_V2.Device_Objective_V2_C",
         "settings": {
             "HUD": {
@@ -3932,12 +4271,115 @@
             }
         }
     },
+    "Pinball Bumper": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Pinball Bumper.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_PinballBumper.PID_Device_PinballBumper",
+        "path": "/CreativeCoreDevices/Device_PinballBumper_V2.Device_PinballBumper_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Pinball Flipper": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Pinball Flipper.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_PinballFlipper.PID_Device_PinballFlipper",
+        "path": "/CreativeCoreDevices/Device_PinballFlipper_V2.Device_PinballFlipper_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Damage Amplifier Powerup": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Damage Amplifier Powerup.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_PowerUp_Damage.PID_Device_PowerUp_Damage",
+        "path": "/CreativeCoreDevices/Device_Powerup_DamageAmplifier_V2.Device_Powerup_DamageAmplifier_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Grind Powerup": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Grind Powerup.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_PowerUp_Grind.PID_Device_PowerUp_Grind",
+        "path": "/CreativeCoreDevices/Device_Powerup_Grind_V2.Device_Powerup_Grind_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "VFX Powerup": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/VFX Powerup.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Powerup_VFX.PID_Device_Powerup_VFX",
+        "path": "/CreativeCoreDevices/Device_Powerup_VisualEffect_V2.Device_Powerup_VisualEffect_V2_C",
+        "settings": {
+            "FX": {
+                "option key": "Custom Effect",
+                "value": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/JadeTowel/FX/NS_JadeTowelRing.NS_JadeTowelRing"
+            },
+            "Sound": {
+                "option key": "Custom Audio",
+                "value": "/Game/Sounds/Fort_Weapons/pistol/1911/1911_HT_Reload_Start_Cue.1911_HT_Reload_Start_Cue"
+            }
+        }
+        
+    },
+    "Prop-O-Matic Manager": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Prop-O-Matic Manager.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_PropOMaticManager.PID_Device_PropOMaticManager",
+        "path": "/CreativeCoreDevices/Device_PropOMaticManager_V2.Device_PropOMaticManager_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Pulse Trigger": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Pulse Trigger.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_PulseTrigger.PID_Device_PulseTrigger",
+        "path": "/CreativeCoreDevices/Device_PulseTrigger.Device_PulseTrigger_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "Radio": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Radio.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Radio.PID_Device_Radio",
         "path": "/CreativeCoreDevices/Device_Radio_V2.Device_Radio_V2_C",
         "settings": {
             "Sound": {
@@ -3950,17 +4392,115 @@
             }
         }
     },
-    "Skilled Interaction": {
+    "Random Number Generator": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
-        "image": "../images/devices/Skilled Interaction.png",
-        "playset": "",
-        "path": "/CRD_SkilledInteractionDevice/Device_SkilledInteractionDevice.Device_SkilledInteractionDevice_C",
+        "image": "../images/devices/Random Number Generator.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_RNG.PID_Device_RNG",
+        "path": "/CreativeCoreDevices/Device_RandomNumberGenerator_V2.Device_RandomNumberGenerator_V2_C",
         "settings": {
-            "HUD": {
-                "option key": "CustomWidget",
-                "value": "/Game/UI/InGame/HUD/WBP_QuickEditGrid.WBP_QuickEditGrid_C"
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Score Manager": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Score Manager.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_ScoreManager.PID_Device_ScoreManager",
+        "path": "/CreativeCoreDevices/Device_ScoreManager_V2.Device_ScoreManager_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Advanced Storm Controller Beacon": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Advanced Storm Controller Beacon.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_StormBeaconAdvanced.PID_Device_StormBeaconAdvanced",
+        "path": "/CreativeCoreDevices/Device_StormBeaconAdvanced_V2.Device_StormBeaconAdvanced_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Target Dummy Track": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Target Dummy Track.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_TargetDummy_Track.PID_Device_TargetDummy_Track",
+        "path": "/CreativeCoreDevices/Device_TargetDummy_Track_V2.Device_TargetDummy_Track_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Target Dummy": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Target Dummy.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_TargetDummy.PID_Device_TargetDummy",
+        "path": "/CreativeCoreDevices/Device_TargetDummy_V2.Device_TargetDummy_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Team Settings & Inventory": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Team Settings & Inventory.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_TeamSettings.PID_Device_TeamSettings",
+        "path": "/CreativeCoreDevices/Device_TeamSettings_V2.Device_TeamSettings_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Teleporter": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Teleporter.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Teleporter.PID_Device_Teleporter",
+        "path": "/CreativeCoreDevices/Device_Teleporter_V2.Device_Teleporter_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Timer Device": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Timer Device.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Timer.PID_Device_Timer",
+        "path": "/CreativeCoreDevices/Device_Timer_V2.Device_Timer_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
             }
         }
     },
@@ -3969,7 +4509,7 @@
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Tracker.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Tracker.PID_Device_Tracker",
         "path": "/CreativeCoreDevices/Device_Tracker_V2.Device_Tracker_V2_C",
         "settings": {
             "HUD": {
@@ -3983,7 +4523,7 @@
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Trick Tile.png",
-        "playset": "",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_TrickTile.PID_Device_TrickTile",
         "path": "/CreativeCoreDevices/Device_TrickTile_V2.Device_TrickTile_V2_C",
         "settings": {
             "Width": {
@@ -4000,24 +4540,75 @@
             }
         }
     },
-    "VFX Powerup": {
+    "Perception Trigger": {
         "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
-        "image": "../images/devices/VFX Powerup.png",
-        "playset": "",
-        "path": "/CreativeCoreDevices/Device_Powerup_VisualEffect_V2.Device_Powerup_VisualEffect_V2_C",
+        "image": "../images/devices/Perception Trigger.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Trigger_Perception.PID_Device_Trigger_Perception",
+        "path": "/CreativeCoreDevices/Device_Trigger_Perception_V2.Device_Trigger_Perception_V2_C",
         "settings": {
-            "FX": {
-                "option key": "Custom Effect",
-                "value": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/JadeTowel/FX/NS_JadeTowelRing.NS_JadeTowelRing"
-            },
-            "Sound": {
-                "option key": "Custom Audio",
-                "value": "/Game/Sounds/Fort_Weapons/pistol/1911/1911_HT_Reload_Start_Cue.1911_HT_Reload_Start_Cue"
+            "": {
+                "option key": "",
+                "value": ""
             }
         }
-        
+    },
+    "Trigger": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Trigger.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Trigger.PID_Device_Trigger",
+        "path": "/CreativeCoreDevices/Device_Trigger_V2.Device_Trigger_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Vending Machine": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Vending Machine.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_VendingMachine.PID_Device_VendingMachine",
+        "path": "/CreativeCoreDevices/Device_VendingMachine_V2.Device_VendingMachine_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Conditional Button": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/Conditional Button.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Devices_ConditionalButton_V2.PID_Devices_ConditionalButton_V2",
+        "path": "/CreativeCoreDevices/Device_ConditionalButton_V2.Device_ConditionalButton_V2_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Environment Light Rig": {
+        "dispo": true,
+        "old": false,
+        "tag": [ "UEFN" ],
+        "image": "../images/devices/Environment Light Rig.png",
+        "playset": "/CreativeCoreDevices/SetupAssets/PID_Environment_Light_Rig.PID_Environment_Light_Rig",
+        "path": "/CreativeCoreDevices/BP_Environment_Light_Rig.BP_Environment_Light_Rig_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
     },
     "~Th3DryZ69~": {
         "dispo": true,
