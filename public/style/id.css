@@ -15,6 +15,9 @@ body {
     font-family: 'FiraCode', monospace !important;
     font-size: 13px !important;
     word-spacing: 0px !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -73,6 +76,18 @@ a.header-arrow-up i {
 nav ul { display: flex; list-style: none; padding: 0; margin: 0; gap: 20px; flex-wrap: wrap; }
 nav a { color: #929295; text-decoration: none; transition: color 0.2s; }
 nav a:hover { color: #ec7519; }
+
+main {
+    flex: 1;
+}
+
+footer {
+    border-top: 1px solid #ec7519;
+    text-align: center;
+    height: 50px;
+}
+
+footer a { color: #ec7519; }
 
 /* ── Page layout ── */
 #idTool {
