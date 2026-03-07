@@ -109,6 +109,90 @@ function formatAssetPath(assetPath) {
     return assetPath;
 }
 
+// // ── Search ──
+// async function searchAssets() {
+//     const keywordsInput = document.getElementById('keywords').value.trim();
+//     const formatted     = document.getElementById('formatted').checked;
+//     const resultsBody   = document.getElementById('results');
+//     const loading       = document.getElementById('loading');
+//     const countEl       = document.getElementById('results-count');
+
+//     resultsBody.innerHTML = '';
+//     countEl.innerHTML = '';
+
+//     if (!keywordsInput) {
+//         alert('Please enter at least one keyword.');
+//         return;
+//     }
+
+//     const keywords = keywordsInput.toLowerCase().split(/[\s,]+/).filter(Boolean);
+//     loading.style.display = 'flex';
+
+//     try {
+//         const response = await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets');
+//         const assets   = await response.json();
+
+//         const matchingPaths = assets.filter(p =>
+//             keywords.every(kw => p.toLowerCase().includes(kw))
+//         );
+//         const finalPaths = formatted ? matchingPaths.map(formatAssetPath) : matchingPaths;
+
+//         countEl.innerHTML = `<span>${finalPaths.length}</span> result${finalPaths.length !== 1 ? 's' : ''} found`;
+
+//         finalPaths.forEach((path, index) => {
+//             const row = document.createElement('tr');
+
+//             // Index cell
+//             const tdIdx = document.createElement('td');
+//             tdIdx.textContent = index + 1;
+//             row.appendChild(tdIdx);
+
+//             // Path cell
+//             const tdPath = document.createElement('td');
+//             const pathCell = document.createElement('div');
+//             pathCell.className = 'path-cell';
+
+//             const pathText = document.createElement('span');
+//             pathText.className = 'path-text';
+//             pathText.textContent = path;
+//             attachTooltip(pathText, path);
+
+//             const actions = document.createElement('div');
+//             actions.className = 'path-actions';
+
+//             const viewBtn = document.createElement('button');
+//             viewBtn.className = 'view-btn';
+//             viewBtn.innerHTML = '👁️';
+//             viewBtn.title = 'View JSON';
+//             viewBtn.addEventListener('click', () => {
+//                 const jsonPath = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`;
+//                 openJsonViewer(jsonPath, path);
+//             });
+
+//             const copyBtn = document.createElement('button');
+//             copyBtn.className = 'copy-btn';
+//             copyBtn.innerHTML = '📋';
+//             copyBtn.title = 'Copy Path';
+//             copyBtn.addEventListener('click', () => copyToClipboard(path, copyBtn));
+
+//             actions.appendChild(viewBtn);
+//             actions.appendChild(copyBtn);
+//             pathCell.appendChild(pathText);
+//             pathCell.appendChild(actions);
+//             tdPath.appendChild(pathCell);
+//             row.appendChild(tdPath);
+
+//             resultsBody.appendChild(row);
+//         });
+
+//     } catch (err) {
+//         console.error('Error fetching assets:', err);
+//         alert('An error occurred while fetching the assets.');
+//     } finally {
+//         loading.style.display = 'none';
+//     }
+// }
+
 // ── Search ──
 async function searchAssets() {
     const keywordsInput = document.getElementById('keywords').value.trim();
@@ -116,75 +200,62 @@ async function searchAssets() {
     const resultsBody   = document.getElementById('results');
     const loading       = document.getElementById('loading');
     const countEl       = document.getElementById('results-count');
-
     resultsBody.innerHTML = '';
     countEl.innerHTML = '';
-
     if (!keywordsInput) {
         alert('Please enter at least one keyword.');
         return;
     }
-
     const keywords = keywordsInput.toLowerCase().split(/[\s,]+/).filter(Boolean);
     loading.style.display = 'flex';
-
     try {
-        const response = await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets');
-        const assets   = await response.json();
-
+        // JSON local
+        const response = await fetch('../data/fortnite_assets.json');
+        const data     = await response.json();
+        const assets   = data.assets;
         const matchingPaths = assets.filter(p =>
             keywords.every(kw => p.toLowerCase().includes(kw))
         );
         const finalPaths = formatted ? matchingPaths.map(formatAssetPath) : matchingPaths;
-
         countEl.innerHTML = `<span>${finalPaths.length}</span> result${finalPaths.length !== 1 ? 's' : ''} found`;
-
         finalPaths.forEach((path, index) => {
             const row = document.createElement('tr');
-
-            // Index cell
             const tdIdx = document.createElement('td');
             tdIdx.textContent = index + 1;
             row.appendChild(tdIdx);
-
-            // Path cell
             const tdPath = document.createElement('td');
             const pathCell = document.createElement('div');
             pathCell.className = 'path-cell';
-
             const pathText = document.createElement('span');
             pathText.className = 'path-text';
             pathText.textContent = path;
             attachTooltip(pathText, path);
-
             const actions = document.createElement('div');
             actions.className = 'path-actions';
-
+            // 👁️ View JSON (API)
             const viewBtn = document.createElement('button');
             viewBtn.className = 'view-btn';
             viewBtn.innerHTML = '👁️';
             viewBtn.title = 'View JSON';
             viewBtn.addEventListener('click', () => {
-                const jsonPath = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`;
+                let apiPath = path.endsWith('_C') ? path.slice(0, -2) : path;
+                const jsonPath = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
                 openJsonViewer(jsonPath, path);
             });
-
+            // 📋 Copy
             const copyBtn = document.createElement('button');
             copyBtn.className = 'copy-btn';
             copyBtn.innerHTML = '📋';
             copyBtn.title = 'Copy Path';
             copyBtn.addEventListener('click', () => copyToClipboard(path, copyBtn));
-
             actions.appendChild(viewBtn);
             actions.appendChild(copyBtn);
             pathCell.appendChild(pathText);
             pathCell.appendChild(actions);
             tdPath.appendChild(pathCell);
             row.appendChild(tdPath);
-
             resultsBody.appendChild(row);
         });
-
     } catch (err) {
         console.error('Error fetching assets:', err);
         alert('An error occurred while fetching the assets.');
