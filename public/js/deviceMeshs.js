@@ -83,7 +83,8 @@ fetch('../data/devicemeshs.json')
                 return a.localeCompare(b, undefined, { sensitivity: 'base' });
             })
             .forEach(([deviceName, deviceData]) => {
-                if (deviceData.dispo === false) return;
+                // if (deviceData.dispo === false) return;
+                const isHidden = deviceData.dispo === false;
 
                 const card = document.createElement('div');
                 card.className = 'device-card';
@@ -215,8 +216,11 @@ fetch('../data/devicemeshs.json')
 
                     card.appendChild(settingsDiv);
                 }
-
+                
+                if (isHidden) card.dataset.dispoHidden = 'true';
+                card.style.display = isHidden ? 'none' : '';
                 meshDiv.appendChild(card);
+                // meshDiv.appendChild(card);
             });
     })
     .catch(err => console.error('Error loading JSON:', err));
@@ -236,4 +240,26 @@ searchInput.addEventListener('input', function () {
         const match = !filter || card.dataset.deviceName.startsWith(filter);
         card.style.display = match ? '' : 'none';
     });
+});
+
+
+
+
+
+
+
+
+
+
+// ── Show All Toggle ──
+let showingAll = false;
+
+document.getElementById('showAllToggle').addEventListener('click', function () {
+    showingAll = !showingAll;
+
+    document.querySelectorAll('.device-card[data-dispo-hidden="true"]').forEach(card => {
+        card.style.display = showingAll ? '' : 'none';
+    });
+
+    this.textContent = showingAll ? '🙈 Hide Unavailable' : '👁 Show All';
 });
