@@ -1,6 +1,6 @@
 {
     "Healing Cactus": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Healing Cactus.png",
@@ -14,7 +14,7 @@
         }
     },
     "Progress Based Mesh Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Progress Based Mesh Device.png",
@@ -28,7 +28,7 @@
         }
     },
     "Player Movement Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Player Movement Device.png",
@@ -56,7 +56,7 @@
         }
     },
     "Player Reference (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Player Reference.png",
@@ -84,7 +84,7 @@
         }
     },
     "Player Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Player Spawner.png",
@@ -98,7 +98,7 @@
         }
     },
     "Voting Group": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Voting Group.png",
@@ -112,7 +112,7 @@
         }
     },
     "Voting Option": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Voting Option.png",
@@ -140,7 +140,7 @@
         }
     },
     "Accolades (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Accolade.png",
@@ -154,7 +154,7 @@
         }
     },
     "Vote Accolades": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Accolade.png",
@@ -168,7 +168,7 @@
         }
     },
     "AI Patrol Path Node": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/AI Patrol Path Node.png",
@@ -182,7 +182,7 @@
         }
     },
     "Persona Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Persona Device.png",
@@ -196,7 +196,7 @@
         }
     },
     "NPC Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "UEFN" ],
         "image": "../images/devices/NPC Spawner.png",
@@ -224,7 +224,7 @@
         }
     },
     "Analytics (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Analytic Device.png",
@@ -321,7 +321,7 @@
         }
     },
     "Armored Battle Bus Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Armored Battle Bus Spawner.png",
@@ -335,7 +335,7 @@
         }
     },
     "Armored Transport Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Armored Transport Spawner.png",
@@ -413,7 +413,7 @@
         }
     },
     "Automated Turret": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Automated Turret.png",
@@ -441,7 +441,7 @@
         }
     },
     "Bank Vault": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Bank Vault.png",
@@ -469,7 +469,7 @@
         }
     },
     "First Person Camera": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/First Person Camera.png",
@@ -483,7 +483,7 @@
         }
     },
     "Fixed Point Camera": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Fixed Point Camera.png",
@@ -497,7 +497,7 @@
         }
     },
     "Orbit Camera": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Orbit Camera.png",
@@ -511,7 +511,7 @@
         }
     },
     "Fixed Angle Camera": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Fixed Angle Camera.png",
@@ -553,7 +553,7 @@
         }
     },
     "Campfire (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Campfire.png",
@@ -599,6 +599,10 @@
             "Mesh": {
                 "option key": "CustomModel",
                 "value": "/Game/Environments/Asteria/Props/Quest/Quest_Clipboard_A/Meshes/SM_Quest_Clipboard_A.SM_Quest_Clipboard_A"
+            },
+            "Custom Sit Animation": {
+                "option key": "Custom Sit Animation",
+                "value": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/Emote_FlossDance_CMM.Emote_FlossDance_CMM"
             }
         }
     },
@@ -617,7 +621,7 @@
         }
     },
     "Signal Remote Manager (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Signal Remote Manager.png",
@@ -645,7 +649,7 @@
         }
     },
     "Cinematic Sequence Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "UEFN" ],
         "image": "../images/devices/Cinematic Sequence Device.png",
@@ -659,7 +663,7 @@
         }
     },
     "Clapboard": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Clapboard.png",
@@ -673,7 +677,7 @@
         }
     },
     "Class Selector UI": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Class Selector UI.png",
@@ -687,7 +691,7 @@
         }
     },
     "Conversation Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Conversation Device.png",
@@ -715,7 +719,7 @@
         }
     },
     "Crash Pad (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Crash Pad.png",
@@ -729,7 +733,7 @@
         }
     },
     "Developer Profile": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Developer Profile.png",
@@ -743,7 +747,7 @@
         }
     },
     "Creature Manager": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Creature Manager.png",
@@ -757,7 +761,7 @@
         }
     },
     "Creature Placer": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Creature Placer.png",
@@ -771,7 +775,7 @@
         }
     },
     "Creature Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Creature Spawner.png",
@@ -823,7 +827,7 @@
         }
     },
     "Third Person Controls": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Third Person Controls.png",
@@ -837,7 +841,7 @@
         }
     },
     "SideScroller Controls": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/SideScroller Controls.png",
@@ -865,7 +869,7 @@
         }
     },
     "Emote Volume": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Emote Volume.png",
@@ -879,7 +883,7 @@
         }
     },
     "Streaming Data Trigger": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Streaming Data Trigger.png",
@@ -907,7 +911,7 @@
         }
     },
     "Down But Not Out Device (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Down But Not Out Device.png",
@@ -975,7 +979,7 @@
         }
     },
     "Dirt Bike Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Dirt Bike Spawner.png",
@@ -989,7 +993,7 @@
         }
     },
     "Disguise Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Disguise Device.png",
@@ -1003,7 +1007,7 @@
         }
     },
     "Drivable Reboot Van Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Drivable Reboot Van Spawner.png",
@@ -1017,7 +1021,7 @@
         }
     },
     "Earth Sprite": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Earth Sprite.png",
@@ -1031,7 +1035,7 @@
         }
     },
     "Message Feed Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Message Feed Device.png",
@@ -1059,15 +1063,15 @@
         }
     },
     "Emote Controller (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Emote Controller.png",
         "playset": "/CRD_EmoteController/SetupAssets/PID_Device_EmoteController.PID_Device_EmoteController",
         "path": "/CRD_EmoteController/Device_EmoteController_V2.Device_EmoteController_V2_C",
         "settings": {
-            "": {
-                "option key": "",
+            "Emote ID": {
+                "option key": "EmoteID",
                 "value": ""
             }
         }
@@ -1087,7 +1091,7 @@
         }
     },
     "Firefly Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Firefly Spawner.png",
@@ -1115,7 +1119,7 @@
         }
     },
     "Fishing Zone (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Fishing Zone.png",
@@ -1129,7 +1133,7 @@
         }
     },
     "Camera Focus Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Camera Focus Device.png",
@@ -1157,7 +1161,7 @@
         }
     },
     "End Game Device (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/End Game Device.png",
@@ -1171,7 +1175,7 @@
         }
     },
     "Game Stream": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Game Stream.png",
@@ -1186,7 +1190,7 @@
         }
     },
     "Fang Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Fang Spawner.png",
@@ -1214,7 +1218,7 @@
         }
     },
     "Shared Save Data Device (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Shared Save Data Device.png",
@@ -1228,7 +1232,7 @@
         }
     },
     "Gravity Gun Controller": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Unreleased" ],
         "image": "../images/devices/Gravity Gun Controller.png",
@@ -1242,7 +1246,7 @@
         }
     },
     "Grind Rail": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Grind Rail.png",
@@ -1270,7 +1274,7 @@
         }
     },
     "Grind Vines": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Grind Vines.png",
@@ -1298,7 +1302,7 @@
         }
     },
     "Health Powerup (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Health Powerup.png",
@@ -1392,7 +1396,7 @@
         }
     },
     "Helicopter Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Helicopter Spawner.png",
@@ -1434,7 +1438,7 @@
         }
     },
     "Input Trigger": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Input Trigger.png",
@@ -1462,7 +1466,7 @@
         }
     },
     "Item Placer (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Item Placer.png",
@@ -1490,7 +1494,7 @@
         }
     },
     "Item Remover (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Item Remover.png",
@@ -1526,7 +1530,7 @@
         }
     },
     "Level Loader Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Level Loader Device.png",
@@ -1540,7 +1544,7 @@
         }
     },
     "TMNT Driftboard Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "TMNT" ],
         "image": "../images/devices/TMNT Driftboard Spawner.png",
@@ -1554,7 +1558,7 @@
         }
     },
     "TMNT Sewer Tunnel": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "TMNT" ],
         "image": "../images/devices/TMNT Sewer Tunnel.png",
@@ -1568,7 +1572,7 @@
         }
     },
     "TMNT Loot Crate": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "TMNT" ],
         "image": "../images/devices/TMNT Loot Crate.png",
@@ -1582,7 +1586,7 @@
         }
     },
     "TMNT Supply Drop Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "TMNT" ],
         "image": "../images/devices/TMNT Supply Drop Spawner.png",
@@ -1596,7 +1600,7 @@
         }
     },
     "LinkCodeMutatorDevice": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Unreleased" ],
         "image": "../images/devices/Emote Controller.png",
@@ -1624,7 +1628,7 @@
         }
     },
     "Video Player (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Video Player.png",
@@ -1721,7 +1725,7 @@
         }
     },
     "Item Shop Mannequin (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Item Shop Mannequin.png",
@@ -1775,7 +1779,7 @@
         }
     },
     "Melee Designer": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Melee Designer.png",
@@ -1817,7 +1821,7 @@
         }
     },
     "Pop-up Dialog Device (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Pop-up Dialog Device.png",
@@ -1845,7 +1849,7 @@
         }
     },
     "Heavy Turret (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Heavy Turret.png",
@@ -1873,7 +1877,7 @@
         }
     },
     "Siege Cannon (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Siege Cannon.png",
@@ -1887,7 +1891,7 @@
         }
     },
     "Mounted Turret": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Mounted Turret.png",
@@ -1915,7 +1919,7 @@
         }
     },
     "UFO Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/UFO Spawner.png",
@@ -1943,7 +1947,7 @@
         }
     },
     "Nitro Drifter Sedan Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Nitro Drifter Sedan Spawner.png",
@@ -1957,7 +1961,7 @@
         }
     },
     "Nitro Hoop": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Nitro Hoop.png",
@@ -1971,7 +1975,7 @@
         }
     },
     "Overlord Spire": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Overlord Spire.png",
@@ -2028,7 +2032,7 @@
         }
     },
     "Dance Capture (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Dance Capture.png",
@@ -2042,7 +2046,7 @@
         }
     },
     "Changing Booth": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Changing Booth.png",
@@ -2070,7 +2074,7 @@
         }
     },
     "Physics Boulder (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Physics Boulder.png",
@@ -2098,7 +2102,7 @@
         }
     },
     "Physics Tree (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Physics Tree.png",
@@ -2168,7 +2172,7 @@
         }
     },
     "Player Checkpoint Pad (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Player Checkpoint Pad.png",
@@ -2196,7 +2200,7 @@
         }
     },
     "Player Counter (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Player Counter.png",
@@ -2224,7 +2228,7 @@
         }
     },
     "Player Marker (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Player Marker.png",
@@ -2252,7 +2256,7 @@
         }
     },
     "Customizable Light (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Customizable Light.png",
@@ -2266,7 +2270,7 @@
         }
     },
     "Post Process": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Post Process.png",
@@ -2294,7 +2298,7 @@
         }
     },
     "Prop Manipulator (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Prop Manipulator.png",
@@ -2322,7 +2326,7 @@
         }
     },
     "Prop Mover (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Prop Mover.png",
@@ -2350,7 +2354,7 @@
         }
     },
     "Race Manager (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Race Manager.png",
@@ -2378,7 +2382,7 @@
         }
     },
     "Race Checkpoint (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Race Checkpoint.png",
@@ -2406,7 +2410,7 @@
         }
     },
     "Real Time Clock (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Real Time Clock.png",
@@ -2420,7 +2424,7 @@
         }
     },
     "Reboot Van": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Reboot Van.png",
@@ -2434,7 +2438,7 @@
         }
     },
     "Roly Poly Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Roly Poly Spawner.png",
@@ -2462,7 +2466,7 @@
         }
     },
     "Save Point (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Save Point.png",
@@ -2476,7 +2480,7 @@
         }
     },
     "Scout Spire": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Scout Spire.png",
@@ -2504,7 +2508,7 @@
         }
     },
     "Sentry (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Sentry.png",
@@ -2518,7 +2522,7 @@
         }
     },
     "Vehicle Service Station": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Vehicle Service Station.png",
@@ -2560,7 +2564,7 @@
         }
     },
     "Skydome (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Skydome.png",
@@ -2588,7 +2592,7 @@
         }
     },
     "Spire Spike": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Spire Spike.png",
@@ -2602,7 +2606,7 @@
         }
     },
     "Sportbike Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Sportbike Spawner.png",
@@ -2616,7 +2620,7 @@
         }
     },
     "Stage Light": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Unreleased" ],
         "image": "../images/devices/Stage Light.png",
@@ -2630,7 +2634,7 @@
         }
     },
     "Stat Counter": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Stat Counter.png",
@@ -2658,7 +2662,7 @@
         }
     },
     "Stat Powerup": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Stat Powerup.png",
@@ -2686,7 +2690,7 @@
         }
     },
     "Item Shop Portal (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Item Shop Portal.png",
@@ -2714,7 +2718,7 @@
         }
     },
     "Streaming Radio V2": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Streaming Radio.png",
@@ -2742,7 +2746,7 @@
         }
     },
     "Supply Drop Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Supply Drop Spawner.png",
@@ -2803,7 +2807,7 @@
         }
     },
     "Tank Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Tank Spawner.png",
@@ -2817,7 +2821,7 @@
         }
     },
     "Throwing Toy Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Throwing Toy Spawner.png",
@@ -2831,7 +2835,7 @@
         }
     },
     "Hammerhead Choppa Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Hammerhead Choppa Spawner.png",
@@ -2845,7 +2849,7 @@
         }
     },
     "SUV Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/SUV Spawner.png",
@@ -2859,7 +2863,7 @@
         }
     },
     "Vehicle Mod Box Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Vehicle Mod Box Spawner.png",
@@ -2887,7 +2891,7 @@
         }
     },
     "ATK Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/ATK Spawner.png",
@@ -2915,7 +2919,7 @@
         }
     },
     "Baller Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Baller Spawner.png",
@@ -2943,7 +2947,7 @@
         }
     },
     "Sedan Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Sedan Spawner.png",
@@ -2971,7 +2975,7 @@
         }
     },
     "Pickup Truck Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Pickup Truck Spawner.png",
@@ -2999,7 +3003,7 @@
         }
     },
     "Big Rig Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Big Rig Spawner.png",
@@ -3027,7 +3031,7 @@
         }
     },
     "Biplane Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Biplane Spawner.png",
@@ -3055,7 +3059,7 @@
         }
     },
     "Cannon Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Cannon Spawner.png",
@@ -3083,7 +3087,7 @@
         }
     },
     "Driftboard Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Driftboard Spawner.png",
@@ -3111,7 +3115,7 @@
         }
     },
     "Boat Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Boat Spawner.png",
@@ -3139,7 +3143,7 @@
         }
     },
     "Quadcrasher Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Quadcrasher Spawner.png",
@@ -3167,7 +3171,7 @@
         }
     },
     "Shopping Cart Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Shopping Cart Spawner.png",
@@ -3195,7 +3199,7 @@
         }
     },
     "Sports Car Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Sports Car Spawner.png",
@@ -3223,7 +3227,7 @@
         }
     },
     "Surfboard Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Surfboard Spawner.png",
@@ -3251,7 +3255,7 @@
         }
     },
     "Taxi Spawner (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Taxi Spawner.png",
@@ -3321,7 +3325,7 @@
         }
     },
     "Script Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "UEFN" ],
         "image": "../images/devices/Script Device.png",
@@ -3349,7 +3353,7 @@
         }
     },
     "VFX Creator (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/VFX Creator.png",
@@ -3363,7 +3367,7 @@
         }
     },
     "Character Transformation Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Character Transformation Device.png",
@@ -3407,7 +3411,7 @@
         }
     },
     "Video Player (New)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Video Player.png",
@@ -3421,7 +3425,7 @@
         }
     },
     "Video Schedule": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative", "Beta" ],
         "image": "../images/devices/Video Schedule.png",
@@ -3435,7 +3439,7 @@
         }
     },
     "Volume": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Volume.png",
@@ -3504,7 +3508,7 @@
         }
     },
     "Mutator Zone (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Mutator Zone.png",
@@ -3532,7 +3536,7 @@
         }
     },
     "Skydive Volume (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Skydive Volume.png",
@@ -3546,7 +3550,7 @@
         }
     },
     "AI Navigation Modification Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/AI Navigation Modification Device.png",
@@ -3574,7 +3578,7 @@
         }
     },
     "Damage Volume (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Damage Volume.png",
@@ -3602,7 +3606,7 @@
         }
     },
     "Fire Volume (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Fire Volume.png",
@@ -3616,7 +3620,7 @@
         }
     },
     "War Bus Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/War Bus Spawner.png",
@@ -3644,7 +3648,7 @@
         }
     },
     "Water (V2)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Water.png",
@@ -3658,7 +3662,7 @@
         }
     },
     "Weapon Mod Bench": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Weapon Mod Bench.png",
@@ -3714,7 +3718,7 @@
         }
     },
     "Bomb Flower": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Bomb Flower.png",
@@ -3728,7 +3732,7 @@
         }
     },
     "Slurp Plant": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Slurp Plant.png",
@@ -3742,7 +3746,7 @@
         }
     },
     "Stink Flower": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Stink Flower.png",
@@ -3770,7 +3774,7 @@
         }
     },
     "Zipline": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Zipline.png",
@@ -3816,7 +3820,7 @@
         }
     },
     "Capture Area": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Capture Area.png",
@@ -3830,7 +3834,7 @@
         }
     },
     "Lock Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Lock Device.png",
@@ -3844,7 +3848,7 @@
         }
     },
     "Matchmaking Portal": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Matchmaking Portal.png",
@@ -3858,7 +3862,7 @@
         }
     },
     "Round Settings": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Round Settings.png",
@@ -3872,7 +3876,7 @@
         }
     },
     "Timed Objective": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Timed Objective.png",
@@ -3886,7 +3890,7 @@
         }
     },
     "Advanced Storm Controller": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Advanced Storm Controller.png",
@@ -3922,7 +3926,7 @@
         }
     },
     "Attribute Evaluator": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Attribute Evaluator.png",
@@ -3936,7 +3940,7 @@
         }
     },
     "Ball Spawner (Legacy)": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Ball Spawner (Legacy).png",
@@ -3950,7 +3954,7 @@
         }
     },
     "Basic Storm Controller": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Basic Storm Controller.png",
@@ -3979,7 +3983,7 @@
         }
     },
     "Billboard": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Billboard.png",
@@ -4007,7 +4011,7 @@
         }
     },
     "Capture Item Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Capture Item Spawner.png",
@@ -4021,7 +4025,7 @@
         }
     },
     "Channel": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Channel.png",
@@ -4035,7 +4039,7 @@
         }
     },
     "Class Designer": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Class Designer.png",
@@ -4049,7 +4053,7 @@
         }
     },
     "Class Selector": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Class Selector.png",
@@ -4091,7 +4095,7 @@
         }
     },
     "Elimination Manager": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Elimination Manager.png",
@@ -4135,7 +4139,7 @@
         }
     },
     "Fuel Pump": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Fuel Pump.png",
@@ -4149,7 +4153,7 @@
         }
     },
     "Geothermal Vent Gallery": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Geothermal Vent Gallery.png",
@@ -4163,7 +4167,7 @@
         }
     },
     "Holoscreen": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Holoscreen.png",
@@ -4199,7 +4203,7 @@
         }
     },
     "Item Granter": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Item Granter.png",
@@ -4213,7 +4217,7 @@
         }
     },
     "Item Spawner": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Item Spawner.png",
@@ -4286,7 +4290,7 @@
         }
     },
     "Pinball Bumper": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Pinball Bumper.png",
@@ -4300,7 +4304,7 @@
         }
     },
     "Pinball Flipper": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Pinball Flipper.png",
@@ -4314,7 +4318,7 @@
         }
     },
     "Damage Amplifier Powerup": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Damage Amplifier Powerup.png",
@@ -4328,7 +4332,7 @@
         }
     },
     "Grind Powerup": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Grind Powerup.png",
@@ -4361,7 +4365,7 @@
         
     },
     "Prop-O-Matic Manager": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Prop-O-Matic Manager.png",
@@ -4375,7 +4379,7 @@
         }
     },
     "Pulse Trigger": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Pulse Trigger.png",
@@ -4407,7 +4411,7 @@
         }
     },
     "Random Number Generator": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Random Number Generator.png",
@@ -4421,7 +4425,7 @@
         }
     },
     "Score Manager": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Score Manager.png",
@@ -4435,7 +4439,7 @@
         }
     },
     "Advanced Storm Controller Beacon": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Advanced Storm Controller Beacon.png",
@@ -4449,7 +4453,7 @@
         }
     },
     "Target Dummy Track": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Target Dummy Track.png",
@@ -4463,7 +4467,7 @@
         }
     },
     "Target Dummy": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Target Dummy.png",
@@ -4477,7 +4481,7 @@
         }
     },
     "Team Settings & Inventory": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Team Settings & Inventory.png",
@@ -4491,7 +4495,7 @@
         }
     },
     "Teleporter": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Teleporter.png",
@@ -4505,7 +4509,7 @@
         }
     },
     "Timer Device": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Timer Device.png",
@@ -4555,7 +4559,7 @@
         }
     },
     "Perception Trigger": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Perception Trigger.png",
@@ -4569,7 +4573,7 @@
         }
     },
     "Trigger": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Trigger.png",
@@ -4583,7 +4587,7 @@
         }
     },
     "Vending Machine": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Vending Machine.png",
@@ -4597,7 +4601,7 @@
         }
     },
     "Conditional Button": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Conditional Button.png",
@@ -4611,7 +4615,7 @@
         }
     },
     "Environment Light Rig": {
-        "dispo": true,
+        "dispo": false,
         "old": false,
         "tag": [ "UEFN" ],
         "image": "../images/devices/Environment Light Rig.png",
