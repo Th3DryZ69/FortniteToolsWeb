@@ -1,3 +1,25 @@
+let ALL_ASSETS = [];
+let ASSETS_READY = false;
+
+async function loadAssets() {
+    if (ASSETS_READY) return;
+    const res = await fetch('../data/fortnite_assets.gz');
+    const buffer = await res.arrayBuffer();
+    const ds = new DecompressionStream("gzip");
+    const stream = new Blob([buffer]).stream().pipeThrough(ds);
+    const text = await new Response(stream).text();
+    ALL_ASSETS = text.split("\n");
+    ASSETS_READY = true;
+    console.log("Assets loaded:", ALL_ASSETS.length);
+}
+
+window.addEventListener("DOMContentLoaded", loadAssets);
+
+async function findAssetById(id) {
+    if (!ASSETS_READY) await loadAssets();
+    return ALL_ASSETS.find(a => a.includes(`/${id}.uasset`));
+}
+
 // ── Helpers ──
 function setResult(el, html, state = 'success') {
     el.className = `result-box ${state}`;
@@ -75,8 +97,9 @@ window.addEventListener('DOMContentLoaded', () => {
             let assetPath = convertExportPath(assetId);
 
             if (!assetId) {
-                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
-                const found = all.find(a => a.includes(`/${input}.uasset`));
+                // const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                // const found = all.find(a => a.includes(`/${input}.uasset`));
+                const found = await findAssetById(input);
                 if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
                 assetPath = found;
             }
@@ -85,8 +108,9 @@ window.addEventListener('DOMContentLoaded', () => {
             let animations = exportData?.jsonOutput;
 
             if (!animations?.[0]) {
-                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
-                const found = all.find(a => a.includes(`/${input}.uasset`));
+                // const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                // const found = all.find(a => a.includes(`/${input}.uasset`));
+                const found = await findAssetById(input);
                 if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
                 exportData = await fetchExportData(found);
                 animations = exportData?.jsonOutput;
@@ -119,16 +143,18 @@ window.addEventListener('DOMContentLoaded', () => {
             const assetId = json?.item?.definitionPath || json?.item?.path;
             let assetPath = convertExportPath(assetId);
             if (!assetId) {
-                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
-                const found = all.find(a => a.includes(`/${input}.uasset`));
+                // const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                // const found = all.find(a => a.includes(`/${input}.uasset`));
+                const found = await findAssetById(input);
                 if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
                 assetPath = found;
             }
             let exportData = await fetchExportData(assetPath);
             let animations = exportData?.jsonOutput;
             if (!animations?.[0]) {
-                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
-                const found = all.find(a => a.includes(`/${input}.uasset`));
+                // const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                // const found = all.find(a => a.includes(`/${input}.uasset`));
+                const found = await findAssetById(input);
                 if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
                 exportData = await fetchExportData(found);
                 animations = exportData?.jsonOutput;
@@ -179,8 +205,9 @@ window.addEventListener('DOMContentLoaded', () => {
             let assetPath = convertExportPath(assetId);
 
             if (!assetId) {
-                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
-                const found = all.find(a => a.includes(`/${input}.uasset`));
+                // const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                // const found = all.find(a => a.includes(`/${input}.uasset`));
+                const found = await findAssetById(input);
                 if (!found) { setResult(output, '❌ No audio data found.', 'error'); return; }
                 assetPath = found;
             }
@@ -189,8 +216,9 @@ window.addEventListener('DOMContentLoaded', () => {
             let animationPath = animationExport?.jsonOutput?.[0]?.Properties?.Animation?.AssetPathName;
 
             if (!animationPath) {
-                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
-                const found = all.find(a => a.includes(`/${input}.uasset`));
+                // const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                // const found = all.find(a => a.includes(`/${input}.uasset`));
+                const found = await findAssetById(input);
                 if (!found) { setResult(output, '❌ No audio data found.', 'error'); return; }
                 const exportData = await fetchExportData(found);
                 animationPath = exportData?.jsonOutput?.[0]?.Properties?.Animation?.AssetPathName;
