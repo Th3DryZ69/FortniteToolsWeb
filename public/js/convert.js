@@ -104,6 +104,49 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('emoteId').addEventListener('keydown', e => { if (e.key === 'Enter') emoteToAnimation(); });
 });
 
+// ── Emote → Animation ──
+window.addEventListener('DOMContentLoaded', () => {
+    async function emoteToSequenceAnimation() {
+        const input  = document.getElementById('emoteIdSequenceAnimation').value.trim();
+        const output = document.getElementById('sequenceAnimationPath');
+        if (!input) { setResult(output, 'Please enter an Emote ID.', 'error'); return; }
+        setLoading(output, 'Fetching sequence animation...');
+        try {
+            const res  = await fetch(`https://fortniteapi.io/v2/items/get?id=${encodeURIComponent(input)}`, {
+                headers: { 'Authorization': '5d8b45aa-b9bd55f8-1f355ec5-fb6b123a' }
+            });
+            const json = await res.json();
+            const assetId = json?.item?.definitionPath || json?.item?.path;
+            let assetPath = convertExportPath(assetId);
+            if (!assetId) {
+                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                const found = all.find(a => a.includes(`/${input}.uasset`));
+                if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
+                assetPath = found;
+            }
+            let exportData = await fetchExportData(assetPath);
+            let animations = exportData?.jsonOutput;
+            if (!animations?.[0]) {
+                const all = await (await fetch('https://fortnitecentral.genxgames.gg/api/v1/assets')).json();
+                const found = all.find(a => a.includes(`/${input}.uasset`));
+                if (!found) { setResult(output, '❌ No animation data found.', 'error'); return; }
+                exportData = await fetchExportData(found);
+                animations = exportData?.jsonOutput;
+                if (!animations?.[0]) { setResult(output, '❌ No animation data found.', 'error'); return; }
+            }
+            const male   = animations[0]?.Properties?.Animation?.AssetPathName || 'None';
+            // const female = animations[0]?.Properties?.AnimationFemaleOverride?.AssetPathName || 'None';
+            exportData = await fetchExportData(male);
+            const sequenceAnimation = exportData?.jsonOutput[0]?.Properties?.CompositeSections?.[0]?.LinkedSequence?.ObjectPath;
+            setResult(output, `Sequence Animation: ${replaceLastSegment(sequenceAnimation)}`);
+        } catch (err) {
+            setResult(output, `❌ Error: ${err.message}`, 'error');
+        }
+    }
+    document.getElementById('convertEmoteToSequenceAnimation').addEventListener('click', emoteToSequenceAnimation);
+    document.getElementById('emoteIdSequenceAnimation').addEventListener('keydown', e => { if (e.key === 'Enter') emoteToSequenceAnimation(); });
+});
+
 // ── Emote → Audio ──
 window.addEventListener('DOMContentLoaded', () => {
     const findAllEmoteSoundPaths = (data) => {
