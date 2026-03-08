@@ -164,7 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // const female = animations[0]?.Properties?.AnimationFemaleOverride?.AssetPathName || 'None';
             exportData = await fetchExportData(male);
             const sequenceAnimation = exportData?.jsonOutput[0]?.Properties?.CompositeSections?.[0]?.LinkedSequence?.ObjectPath;
-            setResult(output, `Sequence Animation: ${replaceLastSegment(sequenceAnimation)}`);
+            setResult(output, `${replaceLastSegment(sequenceAnimation)}`);
         } catch (err) {
             setResult(output, `❌ Error: ${err.message}`, 'error');
         }
