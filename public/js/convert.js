@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('emoteId').addEventListener('keydown', e => { if (e.key === 'Enter') emoteToAnimation(); });
 });
 
-// ── Emote → Animation ──
+// ── Emote → Sequence Animation ──
 window.addEventListener('DOMContentLoaded', () => {
     async function emoteToSequenceAnimation() {
         const input  = document.getElementById('emoteIdSequenceAnimation').value.trim();

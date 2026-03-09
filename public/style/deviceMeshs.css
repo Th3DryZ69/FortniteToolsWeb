@@ -318,6 +318,20 @@ footer a { color: #ec7519; }
 }
 .copy-btn:hover { color: #ec7519; background-color: rgba(236,117,25,0.1); }
 
+.card-playset{
+    display:flex;
+    align-items:center;
+    min-width:0;
+}
+
+.card-playset-value{
+    flex:1;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
     #meshDiv { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); width: 96%; }

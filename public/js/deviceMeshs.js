@@ -5,12 +5,35 @@ document.body.appendChild(tooltip);
 
 let tooltipTimeout = null;
 
-function attachTooltip(el, text) {
+// function attachTooltip(el, text) {
+//     if (!text) return;
+
+//     el.addEventListener('mouseenter', () => {
+//         // Only show if the text is actually truncated (scrollWidth > clientWidth)
+//         if (el.scrollWidth <= el.clientWidth) return;
+
+//         clearTimeout(tooltipTimeout);
+//         tooltip.textContent = text;
+//         tooltip.classList.add('visible');
+//         positionTooltip(el);
+//     });
+
+//     el.addEventListener('mousemove', () => {
+//         positionTooltip(el);
+//     });
+
+//     el.addEventListener('mouseleave', () => {
+//         tooltipTimeout = setTimeout(() => tooltip.classList.remove('visible'), 80);
+//     });
+// }
+
+function attachTooltip(el, text, force = false) {
     if (!text) return;
 
     el.addEventListener('mouseenter', () => {
-        // Only show if the text is actually truncated (scrollWidth > clientWidth)
-        if (el.scrollWidth <= el.clientWidth) return;
+
+        // Only show if truncated unless forced
+        if (!force && el.scrollWidth <= el.clientWidth) return;
 
         clearTimeout(tooltipTimeout);
         tooltip.textContent = text;
@@ -115,13 +138,30 @@ fetch('../data/devicemeshs.json')
                 nameEl.textContent = deviceName;
                 attachTooltip(nameEl, deviceName);
 
+                // const playsetEl = document.createElement('div');
+                // playsetEl.className = 'card-playset';
+                // if (deviceData.playset) {
+                //     playsetEl.innerHTML = `<span class="card-playset-label">Playset: </span>${deviceData.playset}`;
+                //     attachTooltip(playsetEl, 'Playset: ' + deviceData.playset);
+                // }
+
                 const playsetEl = document.createElement('div');
                 playsetEl.className = 'card-playset';
-                if (deviceData.playset) {
-                    playsetEl.innerHTML = `<span class="card-playset-label">Playset: </span>${deviceData.playset}`;
-                    attachTooltip(playsetEl, 'Playset: ' + deviceData.playset);
-                }
 
+                if (deviceData.playset) {
+
+                    // ── Extract last part after "." ──
+                    let shortPlayset = deviceData.playset.split('.').pop();
+                    const label = document.createElement('span');
+                    label.className = 'card-playset-label';
+                    const val = document.createElement('span');
+                    val.className = 'card-playset-value';
+                    val.textContent = shortPlayset;
+                    attachTooltip(val, deviceData.playset, true);
+                    playsetEl.appendChild(label);
+                    playsetEl.appendChild(val);
+                    playsetEl.appendChild(makeCopyBtn(deviceData.playset));
+                }
                 headerText.appendChild(nameEl);
                 headerText.appendChild(playsetEl);
                 header.appendChild(headerText);
@@ -220,7 +260,6 @@ fetch('../data/devicemeshs.json')
                 if (isHidden) card.dataset.dispoHidden = 'true';
                 card.style.display = isHidden ? 'none' : '';
                 meshDiv.appendChild(card);
-                // meshDiv.appendChild(card);
             });
     })
     .catch(err => console.error('Error loading JSON:', err));
@@ -241,15 +280,6 @@ searchInput.addEventListener('input', function () {
         card.style.display = match ? '' : 'none';
     });
 });
-
-
-
-
-
-
-
-
-
 
 // ── Show All Toggle ──
 let showingAll = false;
