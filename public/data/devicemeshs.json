@@ -242,7 +242,7 @@
         "old": false,
         "tag": [ "UEFN" ],
         "image": "../images/devices/Animated Mesh.png",
-        "playset": "",
+        "playset": "/CRD_AnimatedMesh/SetupAssets/PID_CP_Devices_AnimatedMesh.PID_CP_Devices_AnimatedMesh",
         "path": "/CRD_AnimatedMesh/Device_AnimatedMesh.Device_AnimatedMesh_C",
         "settings": {
             "Skeletal Mesh": {
@@ -260,7 +260,7 @@
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Rift Point Volume.png",
-        "playset": "",
+        "playset": "/CRD_ApparatusManager/SetupAssets/PID_ApparatusManager.PID_ApparatusManager",
         "important": "`MaxRiftPointDevices_Override => True` for use `Max Rift Point Devices`",
         "path": "/CRD_ApparatusManager/Device_ApparatusManager.Device_ApparatusManager_C",
         "settings": {
@@ -2008,11 +2008,19 @@
         "tag": [ "Creative" ],
         "image": "../images/devices/Dance Mannequin.png",
         "playset": "/CRD_Papaya_Dance_Mannequin/SetupAssets/PID_Device_Dance_Mannequin.PID_Device_Dance_Mannequin",
-        "important": "go to settings > character skin default preset = custom character cosmetics",
+        "important": "`Character Skin Default Preset => Custom Character Cosmetics` for use `Custom Character Cosmetics Default` | `Character Skin Preset 2 => Custom Character Cosmetics` for use `Custom Character Cosmetics Preset 2` | `Character Skin Preset 3=> Custom Character Cosmetics` for use `Custom Character Cosmetics Preset 3`",
         "path": "/CRD_Papaya_Dance_Mannequin/Device_DanceMannequin_V2.Device_DanceMannequin_V2_C",
         "settings": {
-            "Character": {
+            "Custom Character Cosmetics Default": {
                 "option key": "Custom Character Cosmetics Default",
+                "value": "/BeanstalkCosmetics/Cosmetics/Def/CID/Bean_AgentX.Bean_AgentX"
+            },
+            "Custom Character Cosmetics Preset 2": {
+                "option key": "Custom Character Cosmetics Preset 2",
+                "value": "/BeanstalkCosmetics/Cosmetics/Def/CID/Bean_AgentX.Bean_AgentX"
+            },
+            "Custom Character Cosmetics Preset 3": {
+                "option key": "Custom Character Cosmetics Preset 3",
                 "value": "/BeanstalkCosmetics/Cosmetics/Def/CID/Bean_AgentX.Bean_AgentX"
             }
         }
@@ -3401,10 +3409,10 @@
         "tag": [ "Creative" ],
         "image": "../images/devices/VFX Spawner.png",
         "playset": "/CRD_VFX_Spawner/SetupAssets/PID_Device_VFX_Spawner_V2.PID_Device_VFX_Spawner_V2",
-        "important": "go to settings > custom visual effect override = on (!!!First replace the visual effect with Sakura so that the 'custom visual effect override' button appears in the device settings!!!)",
+        "important": "`CustomVisualEffect_Override => True` for use `Custom Visual Effect`",
         "path": "/CRD_VFX_Spawner/Device_VFXSpawner_V2.Device_VFXSpawner_V2_C",
         "settings": {
-            "FX": {
+            "Custom Visual Effect": {
                 "option key": "CustomVisualEffect",
                 "value": "/BRCosmetics/Animation/Game/MainPlayer/Emotes/JadeTowel/FX/NS_JadeTowelRing.NS_JadeTowelRing"
             }
@@ -3973,10 +3981,10 @@
         "tag": [ "Creative" ],
         "image": "../images/devices/Beacon.png",
         "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_Beacon.PID_Device_Beacon",
-        "important": "go to settings > beacon to show = badge",
+        "important": "`Beacon To Show => Badge` for use `Custom Widget`",
         "path": "/CreativeCoreDevices/Device_Beacon_V2.Device_Beacon_V2_C",
         "settings": {
-            "HUD": {
+            "Custom Widget": {
                 "option key": "CustomWidget",
                 "value": "/Game/UI/InGame/HUD/WBP_QuickEditGrid.WBP_QuickEditGrid_C"
             }
@@ -4254,7 +4262,7 @@
         "tag": [ "Creative" ],
         "image": "../images/devices/Movement Modulator.png",
         "playset": "/CreativeCoreDevices/SetupAssets/PID_Device_MovementModulator.PID_Device_MovementModulator",
-        "important": "go to settings > apply impulse = on : for Forward Impulse and Upward Impulse",
+        "important": "`Apply Impulse => True` for use `Forward Impulse` and `Upward Impulse`",
         "path": "/CreativeCoreDevices/Device_MovementModulator_V2.Device_MovementModulator_V2_C",
         "settings": {
             "Speed": {
@@ -4621,6 +4629,20 @@
         "image": "../images/devices/Environment Light Rig.png",
         "playset": "/CreativeCoreDevices/SetupAssets/PID_Environment_Light_Rig.PID_Environment_Light_Rig",
         "path": "/CreativeCoreDevices/BP_Environment_Light_Rig.BP_Environment_Light_Rig_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Inventory Device": {
+        "dispo": false,
+        "old": false,
+        "tag": [ "Unreleased" ],
+        "image": "../images/devices/Video Schedule.png",
+        "playset": "/Itemization/SetupAssets/PID_CP_Devices_InventoryDevice.PID_CP_Devices_InventoryDevice",
+        "path": "/Itemization/Device_InventoryDevice.Device_InventoryDevice_C",
         "settings": {
             "": {
                 "option key": "",
