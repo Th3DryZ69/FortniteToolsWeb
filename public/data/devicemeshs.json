@@ -1628,16 +1628,21 @@
         }
     },
     "Video Player (V2)": {
-        "dispo": false,
+        "dispo": true,
         "old": false,
         "tag": [ "Creative" ],
         "image": "../images/devices/Video Player.png",
         "playset": "/CRD_LlamatronV2/SetupAssets/PID_Device_VideoPlayer.PID_Device_VideoPlayer",
+        "important": "If you ever want to repair the video player, use `Approved VUID List`",
         "path": "/CRD_LlamatronV2/Device_VideoPlayer_V2.Device_VideoPlayer_V2_C",
         "settings": {
-            "": {
-                "option key": "",
-                "value": ""
+            "Approved VUID List": {
+                "option key": "ApprovedVUIDList",
+                "value": "ComeOnDown"
+            },
+            "Custom Video ID": {
+                "option key": "Custom Video ID",
+                "value": "WoSdaNArjjGtaSphCg"
             }
         }
     },
