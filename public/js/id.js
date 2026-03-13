@@ -98,23 +98,46 @@ function makeCard(itemKey, itemValue) {
     card.appendChild(header);
 
     // Path row (same as deviceMeshs .card-path)
-    if (itemValue.path) {
-        const pathRow = document.createElement('div');
-        pathRow.className = 'id-card-path';
+    if (itemValue.playset) {
+        const playsetRow = document.createElement('div');
+        playsetRow.className = 'id-card-path';
 
         const label = document.createElement('span');
         label.className = 'id-card-path-label';
-        label.textContent = 'Path';
+        label.textContent = 'Playset';
+
+        const label1 = document.createElement('span');
+        label1.className = 'id-card-path-label';
+        label1.textContent = 'Plot';
 
         const val = document.createElement('span');
         val.className = 'id-card-path-value';
-        val.textContent = itemValue.path;
-        attachTooltip(val, itemValue.path);
+        val.textContent = itemValue.playset;
+        attachTooltip(val, itemValue.playset);
 
-        pathRow.appendChild(label);
-        pathRow.appendChild(val);
-        pathRow.appendChild(makeCopyBtn(itemValue.path));
-        card.appendChild(pathRow);
+        playsetRow.appendChild(label);
+        playsetRow.appendChild(val);
+        playsetRow.appendChild(makeCopyBtn(itemValue.playset));
+        card.appendChild(playsetRow);
+    }
+
+    if (itemValue.plot) {
+        const plotRow = document.createElement('div');
+        plotRow.className = 'id-card-path';
+
+        const label = document.createElement('span');
+        label.className = 'id-card-path-label';
+        label.textContent = 'Plot';
+
+        const val = document.createElement('span');
+        val.className = 'id-card-path-value';
+        val.textContent = itemValue.plot;
+        attachTooltip(val, itemValue.plot);
+
+        plotRow.appendChild(label);
+        plotRow.appendChild(val);
+        plotRow.appendChild(makeCopyBtn(itemValue.plot));
+        card.appendChild(plotRow);
     }
 
     return card;
