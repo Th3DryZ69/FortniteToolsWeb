@@ -185,9 +185,7 @@
                 "image": "../images/id/islands/PID_Playset_60x60_Composed.png",
                 "playset": "/CR_Legacy/Playsets/PID_Playset_60x60_Composed.PID_Playset_60x60_Composed",
                 "plot": "/CR_Legacy/Playgrounds/Items/Plots/Temperate_Medium.Temperate_Medium"
-            }
-        },
-        "Unreleased": {
+            },
             "Fortilla Island": {
                 "image": "../images/id/islands/PID_Playset_105x105_Arena_01_Island.png",
                 "playset": "/CR_Legacy/Playsets/PID_Playset_105x105_Arena_01_Island.PID_Playset_105x105_Arena_01_Island",
@@ -197,7 +195,9 @@
                 "image": "../images/id/islands/PID_Playset_105x105_Arena_02_Island.png",
                 "playset": "/CR_Legacy/Playsets/PID_Playset_105x105_Arena_02_Island.PID_Playset_105x105_Arena_02_Island",
                 "plot": "/CR_Legacy/Playgrounds/Items/Plots/Arena_Large_02.Arena_Large_02"
-            },
+            }
+        },
+        "Unreleased": {
             "Loki Dock": {
                 "image": "../images/id/islands/PID_Playset_105x105_Composed_Loki_02.png",
                 "playset": "/CR_Legacy/Playsets/PID_Playset_105x105_Composed_Loki_02.PID_Playset_105x105_Composed_Loki_02",
@@ -303,15 +303,15 @@
                 "playset": "/CR_Legacy/Playsets/PID_Playset_60x60_Featured.PID_Playset_60x60_Featured",
                 "plot": "/CR_Legacy/Playgrounds/Items/Plots/Featured_Temperate_Medium4.Featured_Temperate_Medium4"
             },
-            "Arena Aftermath": {
-                "image": "../images/id/islands/PID_Playset_Arena_Aftermath.png",
-                "playset": "/CR_Legacy/Playsets/PID_Playset_Arena_Aftermath.PID_Playset_Arena_Aftermath",
-                "plot": "/CR_Legacy/Playgrounds/Items/Plots/Arena_Aftermath.Arena_Aftermath"
-            },
             "SlappyShores_POI": {
                 "image": "../images/id/islands/PID_CP_SlappyShores_POI.png",
                 "playset": "/CRP_SlappyShores/SetupAssets/Maps/PID_CP_SlappyShores_POI.PID_CP_SlappyShores_POI",
                 "plot": "NOT_PLOT"
+            },
+            "Arena Aftermath": {
+                "image": "../images/id/islands/PID_Playset_Arena_Aftermath.png",
+                "playset": "/CR_Legacy/Playsets/PID_Playset_Arena_Aftermath.PID_Playset_Arena_Aftermath",
+                "plot": "/CR_Legacy/Playgrounds/Items/Plots/Arena_Aftermath.Arena_Aftermath"
             }
         },
         "Lego": {
