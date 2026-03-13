@@ -341,74 +341,86 @@
                 "plot": "/LimeGFSMetaData/Plots/TownscaperPlotDefinition.TownscaperPlotDefinition"
             }
         },
-        "TurtleNinja": {
+        "Turtle Ninja": {
             "TMNT Flat Grid": {
                 "image": "../images/id/islands/MeltedIronFlatGridPlotDefinition.png",
-                "playset": "/MeltedIronGFSMetaData/Plots/MeltedIronFlatGridPlotDefinition.MeltedIronFlatGridPlotDefinition",
-                "plot": ""
+                "playset": "NOT_PLAYSET",
+                "plot": "/MeltedIronGFSMetaData/Plots/MeltedIronFlatGridPlotDefinition.MeltedIronFlatGridPlotDefinition"
             },
             "TMNT Flat Grid XL": {
                 "image": "../images/id/islands/MeltedIronFlatGridXLPlotDefinition.png",
-                "playset": "/MeltedIronGFSMetaData/Plots/MeltedIronFlatGridXLPlotDefinition.MeltedIronFlatGridXLPlotDefinition",
-                "plot": ""
+                "playset": "NOT_PLAYSET",
+                "plot": "/MeltedIronGFSMetaData/Plots/MeltedIronFlatGridXLPlotDefinition.MeltedIronFlatGridXLPlotDefinition"
             }
         },
-        "FallGuys": {
+        "Fall Guys": {
             "Fall Guys Empty Grid": {
-                "image": "../images/id/islands/BeanstalkEmptyPlot1Definition.png",
+                "image": "../images/id/islands/PID_BeanEmptyPlot1.png",
                 "playset": "/BeanEmptyPlot1/Playsets/Maps/PID_BeanEmptyPlot1.PID_BeanEmptyPlot1",
-                "plot": ""
+                "plot": "/BeanstalkGFSMetaData/Plots/BeanstalkEmptyPlot1Definition.BeanstalkEmptyPlot1Definition"
             },
             "Fall Guys Empty Large Grid": {
-                "image": "../images/id/islands/BeanstalkEmptyPlot2Definition.png",
+                "image": "../images/id/islands/PID_BeanEmptyPlot2.png",
                 "playset": "/BeanEmptyPlot2/Playsets/Maps/PID_BeanEmptyPlot2.PID_BeanEmptyPlot2",
-                "plot": ""
+                "plot": "/BeanstalkGFSMetaData/Plots/BeanstalkEmptyPlot2Definition.BeanstalkEmptyPlot2Definition"
             },
             "Fall Guys Empty XL Grid": {
-                "image": "../images/id/islands/BeanstalkEmptyPlot3Definition.png",
+                "image": "../images/id/islands/PID_BeanEmptyPlot3.png",
                 "playset": "/BeanEmptyPlot3/Playsets/Maps/PID_BeanEmptyPlot3.PID_BeanEmptyPlot3",
-                "plot": ""
+                "plot": "/BeanstalkGFSMetaData/Plots/BeanstalkEmptyPlot3Definition.BeanstalkEmptyPlot3Definition"
             },
             "Fall Guys Empty Shoreline": {
-                "image": "../images/id/islands/BeanstalkEmptyPlot4Definition.png",
+                "image": "../images/id/islands/PID_BeanEmptyPlot4.png",
                 "playset": "/BeanEmptyPlot4/Playsets/Maps/PID_BeanEmptyPlot4.PID_BeanEmptyPlot4",
-                "plot": ""
+                "plot": "/BeanstalkGFSMetaData/Plots/BeanstalkEmptyPlot4Definition.BeanstalkEmptyPlot4Definition"
             },
             "Fall Guys Starter": {
-                "image": "../images/id/islands/BeanStarterPlotDefinition.png",
+                "image": "../images/id/islands/PID_BeanStarter.png",
                 "playset": "/BeanStarter/Playsets/Maps/PID_BeanStarter.PID_BeanStarter",
-                "plot": ""
+                "plot": "/BeanstalkGFSMetaData/Plots/BeanStarterPlotDefinition.BeanStarterPlotDefinition"
             }
         },
-        "TheWalkingDeadUniverse": {
+        "The Walking Dead Universe": {
             "The Walking Dead Universe Flat Grid": {
                 "image": "../images/id/islands/DarkVortexFlatGridPlotDefinition.png",
-                "playset": "/DarkVortexGFSMetaData/Plots/DarkVortexFlatGridPlotDefinition.DarkVortexFlatGridPlotDefinition",
-                "plot": ""
+                "playset": "NOT_PLAYSET",
+                "plot": "/DarkVortexGFSMetaData/Plots/DarkVortexFlatGridPlotDefinition.DarkVortexFlatGridPlotDefinition"
             },
             "The Walking Dead Universe Flat Grid XL": {
                 "image": "../images/id/islands/DarkVortexFlatGridXLPlotDefinition.png",
-                "playset": "/DarkVortexGFSMetaData/Plots/DarkVortexFlatGridXLPlotDefinition.DarkVortexFlatGridXLPlotDefinition",
-                "plot": ""
+                "playset": "NOT_PLAYSET",
+                "plot": "/DarkVortexGFSMetaData/Plots/DarkVortexFlatGridXLPlotDefinition.DarkVortexFlatGridXLPlotDefinition"
             }
         },
-        "SquidGame": {
+        "Squid Game": {
             "Squid Game Flat Grid": {
                 "image": "../images/id/islands/SolidWaveFlatGridPlotDefinition.png",
-                "playset": "/SolidWaveGFSMetaData/Plots/SolidWaveFlatGridPlotDefinition.SolidWaveFlatGridPlotDefinition",
-                "plot": ""
+                "playset": "NOT_PLAYSET",
+                "plot": "/SolidWaveGFSMetaData/Plots/SolidWaveFlatGridPlotDefinition.SolidWaveFlatGridPlotDefinition"
             },
             "Squid Game Flat Grid XL": {
                 "image": "../images/id/islands/SolidWaveFlatGridXLPlotDefinition.png",
-                "playset": "/SolidWaveGFSMetaData/Plots/SolidWaveFlatGridXLPlotDefinition.SolidWaveFlatGridXLPlotDefinition",
-                "plot": ""
+                "playset": "NOT_PLAYSET",
+                "plot": "/SolidWaveGFSMetaData/Plots/SolidWaveFlatGridXLPlotDefinition.SolidWaveFlatGridXLPlotDefinition"
             }
         },
-        "RocketLeague ?!?": {
+        "KPop Demon Hunters": {
+            "KPop Demon Hunters Flat Grid": {
+                "image": "../images/id/islands/BrightCoilFlatGridPlotDefinition.png",
+                "playset": "NOT_PLAYSET",
+                "plot": "/BrightCoilGFSMetaData/Plots/BrightCoilFlatGridPlotDefinition.BrightCoilFlatGridPlotDefinition"
+            },
+            "KPop Demon Hunters Flat Grid XL": {
+                "image": "../images/id/islands/BrightCoilFlatGridPlotDefinition.png",
+                "playset": "NOT_PLAYSET",
+                "plot": "/BrightCoilGFSMetaData/Plots/BrightCoilFlatGridXLPlotDefinition.BrightCoilFlatGridXLPlotDefinition"
+            }
+        },
+        "Rocket League ?!?": {
             "FN1 Flat Grid": {
                 "image": "../images/id/islands/FN1FlatGridPlotDefinition.png",
-                "playset": "/FN1GFSMetaData/Plots/FN1FlatGridPlotDefinition.FN1FlatGridPlotDefinition" ,
-                "plot": ""
+                "playset": "NOT_PLAYSET" ,
+                "plot": "/FN1GFSMetaData/Plots/FN1FlatGridPlotDefinition.FN1FlatGridPlotDefinition"
             }
         }
     },
