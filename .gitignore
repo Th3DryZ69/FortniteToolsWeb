@@ -1,3 +1,4 @@
 public/data/idv2.json
 public/data/fortnite_assets.json
-convert-assets.js
+compress.js
+dragdrop.bat
