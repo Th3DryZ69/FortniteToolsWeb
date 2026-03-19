@@ -4655,6 +4655,34 @@
             }
         }
     },
+    "Partner Quest Trigger": {
+        "dispo": false,
+        "old": false,
+        "tag": [ "Unreleased" ],
+        "image": "../images/id/devices/PID_CP_Devices_GrindRailControlPoint.png",
+        "playset": "/PartnerQuestTrigger/SetupAssets/PID_Device_Partner_Quest_Trigger.PID_Device_Partner_Quest_Trigger",
+        "path": "/PartnerQuestTrigger/Blueprints/Device_Partner_Quest_Trigger.Device_Partner_Quest_Trigger_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
+    "Hero Device": {
+        "dispo": false,
+        "old": false,
+        "tag": [ "Creative" ],
+        "image": "../images/devices/PID_CP_Devices_HeroDevice.png",
+        "playset": "/CRD_HeroDevice/SetupAssets/PID_CP_Devices_HeroDevice.PID_CP_Devices_HeroDevice",
+        "path": "/CRD_HeroDevice/Device_HeroDevice.Device_HeroDevice_C",
+        "settings": {
+            "": {
+                "option key": "",
+                "value": ""
+            }
+        }
+    },
     "~Th3DryZ69~": {
         "dispo": true,
         "old": false,

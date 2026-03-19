@@ -422,6 +422,18 @@
                 "playset": "NOT_PLAYSET" ,
                 "plot": "/FN1GFSMetaData/Plots/FN1FlatGridPlotDefinition.FN1FlatGridPlotDefinition"
             }
+        },
+        "Stars Wars": {
+            "Akita Flat Grid": {
+                "image": "../images/id/islands/AkitaFlatGridPlotDefinition.png",
+                "playset": "NOT_PLAYSET" ,
+                "plot": "/AkitaGFSMetaData/Plots/AkitaFlatGridPlotDefinition.AkitaFlatGridPlotDefinition"
+            },
+            "Akita Flat Grid XL": {
+                "image": "../images/id/islands/AkitaFlatGridXLPlotDefinition.png",
+                "playset": "NOT_PLAYSET" ,
+                "plot": "/AkitaGFSMetaData/Plots/AkitaFlatGridXLPlotDefinition.AkitaFlatGridXLPlotDefinition"
+            }
         }
     },
     "Prefabs/Gallerys": {
