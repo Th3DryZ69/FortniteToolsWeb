@@ -205,7 +205,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 // Action View
                 let filesUasset;
                 viewBtn.addEventListener('click', () => {
-                    const jsonPath = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`;
+                    // const jsonPath = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`;
+                    const jsonPath = `https://api.fortniteapi.com/v1/export?path=${encodeURIComponent(path)}&raw=true`;
                     filesUasset = path
                     openJsonViewer(jsonPath, filesUasset);
                 });

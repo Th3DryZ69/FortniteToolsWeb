@@ -330,8 +330,9 @@ async function searchAssets() {
         viewBtn.title = 'View JSON';
         viewBtn.addEventListener('click', () => {
             let apiPath = path.endsWith('_C') ? path.slice(0, -2) : path;
-            const jsonPath =
-                `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+            // const jsonPath =
+            //     `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+            const jsonPath = `https://api.fortniteapi.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
             openJsonViewer(jsonPath, path);
         });
         const copyBtn = document.createElement('button');
