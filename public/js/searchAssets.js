@@ -308,46 +308,93 @@ async function searchAssets() {
     const matchingPaths = ALL_ASSETS.filter(p =>
         keywords.every(kw => p.toLowerCase().includes(kw))
     );
-    const finalPaths = formatted ? matchingPaths.map(formatAssetPath) : matchingPaths;
+    // const finalPaths = formatted ? matchingPaths.map(formatAssetPath) : matchingPaths;
+    const finalPaths = matchingPaths.map(p => ({
+        display: formatted ? formatAssetPath(p) : p,
+        raw: p
+    }));
     countEl.innerHTML = `<span>${finalPaths.length}</span> result${finalPaths.length !== 1 ? 's' : ''} found`;
-    finalPaths.forEach((path, index) => {
-        const row = document.createElement('tr');
-        const tdIdx = document.createElement('td');
-        tdIdx.textContent = index + 1;
-        row.appendChild(tdIdx);
-        const tdPath = document.createElement('td');
-        const pathCell = document.createElement('div');
-        pathCell.className = 'path-cell';
-        const pathText = document.createElement('span');
-        pathText.className = 'path-text';
-        pathText.textContent = path;
-        attachTooltip(pathText, path);
-        const actions = document.createElement('div');
-        actions.className = 'path-actions';
-        const viewBtn = document.createElement('button');
-        viewBtn.className = 'view-btn';
-        viewBtn.innerHTML = '👁️';
-        viewBtn.title = 'View JSON';
-        viewBtn.addEventListener('click', () => {
-            let apiPath = path.endsWith('_C') ? path.slice(0, -2) : path;
-            // const jsonPath =
-            //     `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
-            const jsonPath = `https://api.fortniteapi.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
-            openJsonViewer(jsonPath, path);
-        });
-        const copyBtn = document.createElement('button');
-        copyBtn.className = 'copy-btn';
-        copyBtn.innerHTML = '📋';
-        copyBtn.title = 'Copy Path';
-        copyBtn.addEventListener('click', () => copyToClipboard(path, copyBtn));
-        actions.appendChild(viewBtn);
-        actions.appendChild(copyBtn);
-        pathCell.appendChild(pathText);
-        pathCell.appendChild(actions);
-        tdPath.appendChild(pathCell);
-        row.appendChild(tdPath);
-        resultsBody.appendChild(row);
+    // finalPaths.forEach((path, index) => {
+    //     const row = document.createElement('tr');
+    //     const tdIdx = document.createElement('td');
+    //     tdIdx.textContent = index + 1;
+    //     row.appendChild(tdIdx);
+    //     const tdPath = document.createElement('td');
+    //     const pathCell = document.createElement('div');
+    //     pathCell.className = 'path-cell';
+    //     const pathText = document.createElement('span');
+    //     pathText.className = 'path-text';
+    //     pathText.textContent = path;
+    //     attachTooltip(pathText, path);
+    //     const actions = document.createElement('div');
+    //     actions.className = 'path-actions';
+    //     const viewBtn = document.createElement('button');
+    //     viewBtn.className = 'view-btn';
+    //     viewBtn.innerHTML = '👁️';
+    //     viewBtn.title = 'View JSON';
+    //     viewBtn.addEventListener('click', () => {
+    //         let apiPath = path.endsWith('_C') ? path.slice(0, -2) : path;
+    //         // const jsonPath =
+    //         //     `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+    //         const jsonPath = `https://api.fortniteapi.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+    //         openJsonViewer(jsonPath, path);
+    //     });
+    //     const copyBtn = document.createElement('button');
+    //     copyBtn.className = 'copy-btn';
+    //     copyBtn.innerHTML = '📋';
+    //     copyBtn.title = 'Copy Path';
+    //     copyBtn.addEventListener('click', () => copyToClipboard(path, copyBtn));
+    //     actions.appendChild(viewBtn);
+    //     actions.appendChild(copyBtn);
+    //     pathCell.appendChild(pathText);
+    //     pathCell.appendChild(actions);
+    //     tdPath.appendChild(pathCell);
+    //     row.appendChild(tdPath);
+    //     resultsBody.appendChild(row);
+    // });
+    finalPaths.forEach(({ display, raw }, index) => {
+    const row = document.createElement('tr');
+    const tdIdx = document.createElement('td');
+    tdIdx.textContent = index + 1;
+    row.appendChild(tdIdx);
+
+    const tdPath = document.createElement('td');
+    const pathCell = document.createElement('div');
+    pathCell.className = 'path-cell';
+
+    const pathText = document.createElement('span');
+    pathText.className = 'path-text';
+    pathText.textContent = display;         // ← affiche le formaté
+    attachTooltip(pathText, display);
+
+    const actions = document.createElement('div');
+    actions.className = 'path-actions';
+
+    const viewBtn = document.createElement('button');
+    viewBtn.className = 'view-btn';
+    viewBtn.innerHTML = '👁️';
+    viewBtn.title = 'View JSON';
+    viewBtn.addEventListener('click', () => {
+        let apiPath = raw.endsWith('_C') ? raw.slice(0, -2) : raw;  // ← utilise le raw
+        const jsonPath = `https://api.fortniteapi.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+        openJsonViewer(jsonPath, raw);      // ← raw aussi pour le filepath affiché
     });
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-btn';
+    copyBtn.innerHTML = '📋';
+    copyBtn.title = 'Copy Path';
+    copyBtn.addEventListener('click', () => copyToClipboard(display, copyBtn));  // ← copie le formaté
+
+    actions.appendChild(viewBtn);
+    actions.appendChild(copyBtn);
+    pathCell.appendChild(pathText);
+    pathCell.appendChild(actions);
+    tdPath.appendChild(pathCell);
+    row.appendChild(tdPath);
+
+    resultsBody.appendChild(row);
+});
 }
 
 
