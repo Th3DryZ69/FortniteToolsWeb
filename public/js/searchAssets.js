@@ -376,7 +376,8 @@ async function searchAssets() {
     viewBtn.title = 'View JSON';
     viewBtn.addEventListener('click', () => {
         let apiPath = raw.endsWith('_C') ? raw.slice(0, -2) : raw;  // ← utilise le raw
-        const jsonPath = `https://api.fortniteapi.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+        const jsonPath = `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+        // const jsonPath = `https://api.fortniteapi.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
         openJsonViewer(jsonPath, raw);      // ← raw aussi pour le filepath affiché
     });
 
