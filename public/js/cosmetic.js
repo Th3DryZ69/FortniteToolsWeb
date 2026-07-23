@@ -36,7 +36,7 @@ function findCharacterAssets(){
 
 async function fetchExport(path){
 
-    const url = `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(path)}&raw=true`;
+    const url = `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(path)}&raw=true`;
 
     const res = await fetch(url);
     const json = await res.json();
@@ -80,7 +80,7 @@ function iconToImage(iconPath){
 
     const clean = iconPath.split(".")[0];
 
-    return `https://fortnitecentral.genxgames.gg/api/v1/export?path=${encodeURIComponent(clean)}&raw=false`;
+    return `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(clean)}&raw=false`;
 
 }
 
