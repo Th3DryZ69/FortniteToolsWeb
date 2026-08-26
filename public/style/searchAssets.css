@@ -397,3 +397,31 @@ input[type="checkbox"]:checked::after {
     text-overflow: unset;
     max-width: none;
 }
+
+
+.asset-switcher {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.asset-tab {
+    padding: 8px 18px;
+    border: 1px solid #3e3f4a;
+    border-radius: 6px;
+    background: #27272f;
+    color: #929295;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.asset-tab:hover {
+    background: #32333d;
+    color: white;
+}
+
+.asset-tab.active {
+    background: #ec7519;
+    border-color: #ec7519;
+    color: white;
+}
