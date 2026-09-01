@@ -304,7 +304,7 @@ function copyToClipboard(text, btn) {
         });
 }
 
-function openJsonViewer(jsonPath, filePath) {
+function openJsonViewer(jsonPath, imgPath,filePath) {
     const newWindow = window.open();
 
     if (!newWindow) {
@@ -402,6 +402,7 @@ function openJsonViewer(jsonPath, filePath) {
                 Loading JSON data...
             </div>
 
+            <img src="${imgPath}" alt="">
             <pre id="json-content"></pre>
 
             <script>
@@ -1055,9 +1056,13 @@ async function searchAssets() {
                     const jsonPath =
                         `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
 
-
+                    
+                    const imgPath =
+                        `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(apiPath)}&ForceImage=true`;
+                    
                     openJsonViewer(
                         jsonPath,
+                        imgPath,
                         raw
                     );
                 }
