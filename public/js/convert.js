@@ -424,7 +424,8 @@ function findAllSoundWavePaths(data) {
 // ── Network helpers ──────────────────────────────────────────────────────────
 
 const CENTRAL_BASE = 'https://fortnitecentral.genxgames.gg/api/v1';
-const DILLY_BASE   = 'https://export-service.dillyapis.com/v1';
+// const DILLY_BASE   = 'https://export-service.dillyapis.com/v1';
+const DILLY_BASE   = 'https://export-service-new.dillyapis.com/v1';
 
 /**
  * Export a .uasset from two endpoints, falling back automatically.
