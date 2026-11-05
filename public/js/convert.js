@@ -437,14 +437,14 @@ async function fetchExportData(assetPath) {
 
     // Primary
     try {
-        const res  = await fetch(`${CENTRAL_BASE}/export?path=${encoded}&raw=true`);
+        const res  = await fetch(`${DILLY_BASE}/export?path=${encoded}&raw=true`);
         const data = await res.json();
         if (!data.errored || data.note !== 'Unable to find package') return data;
     } catch { /* fall through */ }
 
     // Secondary
     try {
-        const res = await fetch(`${DILLY_BASE}/export?path=${encoded}`);
+        const res = await fetch(`${CENTRAL_BASE}/export?path=${encoded}`);
         return await res.json();
     } catch { return null; }
 }
