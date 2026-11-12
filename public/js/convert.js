@@ -424,8 +424,37 @@ function findAllSoundWavePaths(data) {
 // ── Network helpers ──────────────────────────────────────────────────────────
 
 const CENTRAL_BASE = 'https://fortnitecentral.genxgames.gg/api/v1';
-// const DILLY_BASE   = 'https://export-service.dillyapis.com/v1';
-const DILLY_BASE   = 'https://export-service-new.dillyapis.com/v1';
+const DILLY_BASE   = 'https://export-service.dillyapis.com/v1';
+const NEW_DILLY_BASE   = 'https://export-service-new.dillyapis.com/v1';
+
+// /**
+//  * Export a .uasset from two endpoints, falling back automatically.
+//  * Returns parsed JSON or null.
+//  */
+// async function fetchExportData(assetPath) {
+//     if (!assetPath) return null;
+//     const encoded = encodeURIComponent(assetPath);
+
+//     // Primary
+//     try {
+//         const res  = await fetch(`${NEW_DILLY_BASE}/export?path=${encoded}&raw=true`);
+//         const data = await res.json();
+//         if (!data.errored || data.note !== 'Unable to find package') return data;
+//     } catch { /* fall through */ }
+
+//     try {
+//         const res  = await fetch(`${DILLY_BASE}/export?path=${encoded}&raw=true`);
+//         const data = await res.json();
+//         if (!data.errored || data.note !== 'Unable to find package') return data;
+//     } catch { /* fall through */ }
+
+//     // Secondary
+//     try {
+//         const res = await fetch(`${CENTRAL_BASE}/export?path=${encoded}`);
+//         return await res.json();
+//     } catch { return null; }
+// }
+
 
 /**
  * Export a .uasset from two endpoints, falling back automatically.
@@ -434,20 +463,61 @@ const DILLY_BASE   = 'https://export-service-new.dillyapis.com/v1';
 async function fetchExportData(assetPath) {
     if (!assetPath) return null;
     const encoded = encodeURIComponent(assetPath);
-
     // Primary
     try {
-        const res  = await fetch(`${DILLY_BASE}/export?path=${encoded}&raw=true`);
+        const res = await fetch(
+            `${NEW_DILLY_BASE}/export?path=${encoded}&raw=true`
+        );
         const data = await res.json();
-        if (!data.errored || data.note !== 'Unable to find package') return data;
-    } catch { /* fall through */ }
-
-    // Secondary
+        // Fallback if package is missing or server is initializing
+        if (
+            data.errored ||
+            res.status === 503 ||
+            data.code === 503 ||
+            data.error === 'service_unavailable' ||
+            data.error_description?.includes('initializing') ||
+            data.note === 'Unable to find package'
+        ) {
+            // Continue to DILLY_BASE
+        } else {
+            return data;
+        }
+    } catch {
+        // Fall through
+    }
+    // Secondary endpoint
     try {
-        const res = await fetch(`${CENTRAL_BASE}/export?path=${encoded}`);
+        const res = await fetch(
+            `${DILLY_BASE}/export?path=${encoded}&raw=true`
+        );
+
+        const data = await res.json();
+        if (
+            data.errored ||
+            res.status === 503 ||
+            data.code === 503 ||
+            data.error === 'service_unavailable' ||
+            data.error_description?.includes('initializing') ||
+            data.note === 'Unable to find package'
+        ) {
+            // Continue to CENTRAL_BASE
+        } else {
+            return data;
+        }
+    } catch {
+        // Fall through
+    }
+    // Final fallback
+    try {
+        const res = await fetch(
+            `${CENTRAL_BASE}/export?path=${encoded}`
+        );
         return await res.json();
-    } catch { return null; }
+    } catch {
+        return null;
+    }
 }
+
 
 /**
  * Resolve a cosmetic's asset path:

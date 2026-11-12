@@ -1043,30 +1043,89 @@ async function searchAssets() {
                 'View JSON';
 
 
-            viewBtn.addEventListener(
-                'click',
-                () => {
+            // viewBtn.addEventListener(
+            //     'click',
+            //     () => {
 
-                    let apiPath =
-                        raw.endsWith('_C')
-                            ? raw.slice(0, -2)
-                            : raw;
+            //         let apiPath =
+            //             raw.endsWith('_C')
+            //                 ? raw.slice(0, -2)
+            //                 : raw;
 
 
-                    const jsonPath =
-                        `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
+            //         const jsonPath =
+            //             `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(apiPath)}&raw=true`;
 
                     
-                    const imgPath =
-                        `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(apiPath)}&ForceImage=true`;
+            //         const imgPath =
+            //             `https://export-service-new.dillyapis.com/v1/export?path=${encodeURIComponent(apiPath)}&ForceImage=true`;
                     
-                    openJsonViewer(
-                        jsonPath,
-                        imgPath,
-                        raw
-                    );
+            //         openJsonViewer(
+            //             jsonPath,
+            //             imgPath,
+            //             raw
+            //         );
+            //     }
+            // );
+            
+
+            viewBtn.addEventListener('click', async () => {
+
+                let apiPath = raw.endsWith('_C')
+                    ? raw.slice(0, -2)
+                    : raw;
+
+                const encoded = encodeURIComponent(apiPath);
+
+                const endpoints = [
+                    'https://export-service-new.dillyapis.com/v1/export',
+                    'https://export-service.dillyapis.com/v1/export',
+                    'https://export-service-central.dillyapis.com/v1/export'
+                ];
+
+                async function fetchWithFallback(params) {
+                    for (const endpoint of endpoints) {
+                        try {
+                            const url = `${endpoint}?path=${encoded}&${params}`;
+
+                            const res = await fetch(url);
+                            const data = await res.json();
+
+                            if (
+                                res.status === 503 ||
+                                data.code === 503 ||
+                                data.error === 'service_unavailable' ||
+                                data.error_description?.includes('initializing') ||
+                                data.note === 'Unable to find package' ||
+                                data.errored
+                            ) {
+                                continue;
+                            }
+
+                            return url;
+
+                        } catch {
+                            continue;
+                        }
+                    }
+
+                    return null;
                 }
-            );
+
+                const jsonPath = await fetchWithFallback('raw=true');
+                const imgPath = await fetchWithFallback('ForceImage=true');
+
+                if (!jsonPath && !imgPath) {
+                    console.error('All export endpoints failed.');
+                    return;
+                }
+
+                openJsonViewer(
+                    jsonPath,
+                    imgPath,
+                    raw
+                );
+            });
 
 
             /*
